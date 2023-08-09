@@ -1,0 +1,62 @@
+package exer2;
+
+import java.util.Arrays;
+
+public class SRank {
+	Student st1, st2, st3, st4, st5;
+	int [] rank;
+
+	
+	class Student{
+		String name;
+		int [] jum;
+		
+		jum = [int kor, int eng, int mat];
+		
+		void calc(int[] exarr) {
+			int tot=0;
+			for( i : exarr) {
+				tot+=exarr[i];
+			}
+		}
+				
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public int[] getJum() {
+			return jum;
+		}
+		public void setJum(int... jum) {
+			this.jum = jum;
+		}
+		
+		public int getTot() {
+			return tot;
+		}
+		public void setTot(int tot) {
+			this.tot = tot;
+		}
+		public double getAvg() {
+			return avg;
+		}
+		public void setAvg(double avg) {
+			this.avg = avg;
+		}
+		public int getRank() {
+			return rank;
+		}
+		public void setRank(int rank) {
+			this.rank = rank;
+		}
+		@Override
+		public String toString() {
+			return "Student [name=" + name + ", jum=" + Arrays.toString(jum) + "]";
+		}
+		
+	}
+
+
+}

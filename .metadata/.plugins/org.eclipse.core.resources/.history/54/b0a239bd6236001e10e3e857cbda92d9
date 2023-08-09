@@ -1,0 +1,36 @@
+package di_p.main;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Collection_main {
+
+	public static void main(String[] args) {
+		
+		AbstractApplicationContext context = 
+				new ClassPathXmlApplicationContext("di_xml/collection.xml");
+		
+		ArrayList arr1 = context.getBean("arr1", ArrayList.class);
+		System.out.println(arr1);	// [아기상어, 뚜루루뚜루, 귀여운, 뚜루루뚜루, 바닷속, 아기상어]
+		
+		HashSet ss1 = context.getBean("ss1", HashSet.class);
+		System.out.println(ss1);	// [바닷속, 귀여운, 아기상어, 뚜루루뚜루] - 중복x 순서없음
+		
+		LinkedHashSet ss2 = context.getBean("ss2", LinkedHashSet.class);
+		System.out.println(ss2);	// [아기상어, 뚜루루뚜루, 귀여운, 바닷속] - 중복x 순서있음
+		
+		HashMap map1 = context.getBean("map1", HashMap.class);
+		System.out.println(map1);	// {티라노=파충류, 아기상어=1심방1심실, 켄신=비천어검류, 악어=파충류}	// 아기상어의 경우 value가 두번나와서 덮어씀(나중에 부여한 값으로 출력됨)
+		
+		DIColl dic = context.getBean("dic", DIColl.class);
+		System.out.println(dic.nick+", "+dic.age);
+		System.out.println(Arrays.toString(dic.arr));
+	}
+
+}

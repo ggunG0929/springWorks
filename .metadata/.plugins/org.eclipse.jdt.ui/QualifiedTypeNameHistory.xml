@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="di_p.HandPhone"/>
+    <fullyQualifiedTypeName name="di_p.Camera"/>
+    <fullyQualifiedTypeName name="exercise.Basket"/>
+    <fullyQualifiedTypeName name="org.springframework.context.support.AbstractApplicationContext"/>
+    <fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
+    <fullyQualifiedTypeName name="exercise.Tire"/>
+    <fullyQualifiedTypeName name="exercise.Bike0"/>
+    <fullyQualifiedTypeName name="exercise.Bike2"/>
+</qualifiedTypeNameHistroy>

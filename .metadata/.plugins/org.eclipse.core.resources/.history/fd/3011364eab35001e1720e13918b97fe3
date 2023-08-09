@@ -1,0 +1,29 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	<bean class="exercise.Bike" name="bk1">
+		<property name="name">
+			<value>세발자전거</value>
+		</property>
+		<property name="Tire">
+			<ref bean="t3"/>
+		</property>
+		<property name="Handle">
+			<ref bean="h1"/>
+		</property>
+		<property name="Basket">
+			<ref bean="b1"/>
+		</property>
+	</bean>
+	<bean class="exercise.Tire" name="t3">
+		<property name="name" value="바퀴"/>
+		<property name="cnt" value="3"/>
+	</bean>
+	<bean class="exercise.Handle" name="h1">
+		<property name="name" value="핸들"/>
+	</bean>
+	<bean class="exercise.Basket" name="b1">
+		<property name="name" value="바구니"/>
+	</bean>
+</beans>

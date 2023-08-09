@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean class="exer2.SRank.Student" name="st1">
+		<property name="name" value="원빈"/>
+		<property name="jum" value="55,66,77"/>
+	</bean>
+	<bean class="exer2.SRank.Student" name="st2">
+		<property name="name" value="투빈"/>
+		<property name="jum" value="56,66,77"/>
+	</bean>
+	<bean class="exer2.SRank.Student" name="st3">
+		<property name="name" value="현빈"/>
+		<property name="jum" value="95,76,77"/>
+	</bean>
+	<bean class="exer2.SRank.Student" name="st4">
+		<property name="name" value="장희빈"/>
+		<property name="jum" value="55,86,97"/>
+	</bean>
+
+
+</beans>

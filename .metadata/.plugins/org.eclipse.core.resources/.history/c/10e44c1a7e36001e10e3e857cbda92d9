@@ -1,0 +1,65 @@
+package exer2;
+
+import java.util.Arrays;
+
+public class SRank {
+	Student[] students;
+
+	public void setStudents(Student... students) {
+		this.students = students;
+	}
+	
+	
+	/*
+	for(Student st : students) {
+	    st.rankCalc(students);
+	}*/
+	
+	
+	@Override
+	public String toString() {
+		return "SRank [students=" + Arrays.toString(students) + "]";
+	}
+
+
+	class Student{
+		String name;
+		int [] jum;
+		int tot, rank;
+		double avg;
+		
+		// 입력이 필요한 필드와 그에 따른 연산
+		public Student(String name, int ... jum) {
+			this.name = name;
+			this.jum = new int[jum.length];
+			calc();
+		}
+	
+		// tot, avg, grade 연산
+		void calc() {
+			tot = 0;
+			for(int i : jum) {
+				tot += i;
+			}
+			avg = (double)tot/jum.length;
+		}
+	
+		public void rankCalc(Student [] exArr) {
+		// 등수 초기값 1위
+			rank = 1;
+			for(Student you : exArr) {
+				if(you!=null && avg<you.avg) {
+					rank++;
+				}
+			}
+		}
+	
+		@Override
+		public String toString() {
+			return "Student [name=" + name + ", jum=" + Arrays.toString(jum) + "]";
+		}
+		
+	}
+}
+
+

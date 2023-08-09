@@ -1,0 +1,14 @@
+package di_p;
+
+public class HamburgerSet {
+	class Hamburger{
+		
+	}
+	
+	class Drink{
+		String name;
+		int cal, price;
+		String Ice;
+	}
+
+}

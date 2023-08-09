@@ -1,0 +1,90 @@
+package exer2;
+
+public class Student {
+	Kor kor;
+	Eng eng;
+	Mat mat;
+	int sum;
+	double avg;
+	
+	class Kor{
+		int jum;
+		public int getJum() {
+			return jum;
+		}
+		public void setJum(int jum) {
+			this.jum = jum;
+		}
+		@Override
+		public String toString() {
+			return "Kor [jum=" + jum + "]";
+		}
+
+	}
+	class Eng{
+		int jum;
+
+		public int getJum() {
+			return jum;
+		}
+
+		public void setJum(int jum) {
+			this.jum = jum;
+		}
+
+		@Override
+		public String toString() {
+			return "Eng [jum=" + jum + "]";
+		}
+		
+	}
+	class Mat{
+		int jum;
+
+		public int getJum() {
+			return jum;
+		}
+
+		public void setJum(int jum) {
+			this.jum = jum;
+		}
+
+		@Override
+		public String toString() {
+			return "Mat [jum=" + jum + "]";
+		}
+		
+	}
+	
+	public Kor getKor() {
+		return getJum(kor);
+	}
+	public void setKor(Kor kor) {
+		this.kor = kor;
+	}
+	public Eng getEng() {
+		return eng;
+	}
+	public void setEng(Eng eng) {
+		this.eng = eng;
+	}
+	public Mat getMat() {
+		return mat;
+	}
+	public void setMat(Mat mat) {
+		this.mat = mat;
+	}
+	public int getSum() {
+		return sum;
+	}
+	public void setSum(int sum) {
+		this.sum = kor + eng + mat;
+	}
+	public double getAvg() {
+		return avg;
+	}
+	public void setAvg(double avg) {
+		this.avg = avg;
+	}
+
+}

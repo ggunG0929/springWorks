@@ -1,0 +1,47 @@
+package exercise;
+
+public class Bike1 implements Bike0{
+
+	private String name;
+	private Tire tire;
+	String intf = "";
+	
+	@Override
+	public void go() {
+		this.intf = "가 산 길 속을 헤쳐간다";
+		toString();
+		
+	}
+	@Override
+	public void fix() {
+		this.intf = "를 뚱땅뚱땅 고친다";
+		toString();
+		
+	}
+	@Override
+	public void fall() {
+		this.intf = "가 우르르 넘어진다";
+		toString();
+	}
+	@Override
+	public void name() {
+		this.name = "MTB";
+		
+	}
+	@Override
+	public void tire() {
+		this.tire = new Tire();
+		
+	}
+	@Override
+	public void handle() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void basket() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

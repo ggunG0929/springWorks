@@ -1,0 +1,34 @@
+package exercise;
+
+public class Bike2 implements Bike0{
+	String name;
+	String intf = "";
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = "포카리자전거";
+	}
+	
+	@Override
+	public String toString() {
+		return name + intf;
+	}
+	@Override
+	public void go() {
+		this.intf = "가 간다";
+		toString();
+	}
+	@Override
+	public void fix() {
+		this.intf = "를 고친다";
+		toString();
+	}
+	@Override
+	public void fall() {
+		this.intf = "가 넘어진다";
+		toString();
+	}
+}

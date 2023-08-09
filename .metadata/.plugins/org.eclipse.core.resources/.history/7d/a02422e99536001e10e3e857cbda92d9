@@ -1,0 +1,55 @@
+package exer2;
+
+import java.util.Arrays;
+
+public class Student {
+	// 필드 선언
+	String name;
+	int[] jum;
+	int tot;
+	// rank 연산시 더 정확하도록 double 적용
+	double avg;
+
+//	// tot, avg, grade 연산 - 따로 안쓰심
+//	void calc() {
+//		tot = 0;
+//		for(int i : jum) {
+//			tot += i;
+//		}
+//		avg = (double)tot/jum.length;
+//	}
+	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setJum(int... jum) {
+		this.jum = jum;
+	// 여기서부터 중요
+		tot=0;
+		for(int i : jum) {
+			tot += i;
+		}
+		avg = tot / jum.length;
+
+//	}
+//	public int getTot() { return tot; }
+//	
+//	public void setTot(int tot) { this.tot = tot; }
+//	
+//	public double getAvg() { return avg; }
+//	 
+//	public void setAvg(double avg) { this.avg = avg; }
+//
+//	@Override
+//	public String toString() {
+//		return "Student [name=" + name + ", jum=" + Arrays.toString(jum) + ", tot=" + tot
+//				+ ", avg=" + avg + "]";
+//	}
+//
+//}

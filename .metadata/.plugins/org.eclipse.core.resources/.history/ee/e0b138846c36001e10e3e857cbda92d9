@@ -1,0 +1,20 @@
+package exer2;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+
+public class StudentMain {
+
+	public static void main(String[] args) {
+
+			
+		AbstractApplicationContext context = 
+				new ClassPathXmlApplicationContext("di_xml/hamburger.xml");
+
+		
+		Student st1 = context.getBean("원빈", Student.class);
+		System.out.println(hs1);
+	}
+
+}

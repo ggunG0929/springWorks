@@ -1,0 +1,23 @@
+package exercise;
+
+public class bike3f implements Bike0{
+
+	@Override
+	public void go() {
+		this.toString() = "세발 자전거가 간다";
+		
+	}
+
+	@Override
+	public void fix() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void fall() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

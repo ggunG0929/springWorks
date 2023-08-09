@@ -1,0 +1,14 @@
+package exer2;
+
+import java.util.Arrays;
+
+public class Student {
+	String name;
+	int [] jum;
+
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", jum=" + Arrays.toString(jum) + "]";
+	}
+	
+}
