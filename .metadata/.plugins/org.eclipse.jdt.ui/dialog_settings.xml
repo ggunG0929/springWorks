@@ -29,7 +29,7 @@
 		<item key="ToStringTemplateSelected" value="0"/>
 		<item key="FinalModifier" value="false"/>
 		<item key="SynchronizedModifier" value="false"/>
-		<item key="Comments" value="true"/>
+		<item key="Comments" value="false"/>
 		<item key="VisibilityModifier" value="1"/>
 	</section>
 	<section name="DialogBounds_GenerateToStringDialog">
