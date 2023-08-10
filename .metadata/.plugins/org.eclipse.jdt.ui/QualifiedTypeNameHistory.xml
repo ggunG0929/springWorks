@@ -8,4 +8,14 @@
     <fullyQualifiedTypeName name="exercise.Tire"/>
     <fullyQualifiedTypeName name="exercise.Bike0"/>
     <fullyQualifiedTypeName name="exercise.Bike2"/>
+    <fullyQualifiedTypeName name="di_p.HamburgerSet"/>
+    <fullyQualifiedTypeName name="java.util.HashSet"/>
+    <fullyQualifiedTypeName name="java.util.LinkedHashSet"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="exer2.Student"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="exer2.SRank"/>
+    <fullyQualifiedTypeName name="exer2.SRank.Student"/>
 </qualifiedTypeNameHistroy>
