@@ -24,13 +24,18 @@ public class AutoWire_main {
 		// car2: AutoCar [name=말도타, eng=AutoEngine [name=V4기통, power=500], whs=[AutoWheel [name=크롬휠, size=21], AutoWheel [name=고무휠, size=21], AutoWheel [name=자전거휠, size=21], AutoWheel [name=탱크휠, size=21]], handle=AutoHandle [name=핸들1, type=승용차용]]
 		System.out.println("car2: " + context.getBean("car2"));
 
+		// autowire byname 자동으로 연결
 		// handle의 이름을 handle로 해서 handle만 가지고옴
 		// setter로 연결한 wheel 1,3번을 가져옴
 		// eng null handle
 		// car3: AutoCar [name=개만타, eng=null, whs=[AutoWheel [name=크롬휠, size=21], AutoWheel [name=자전거휠, size=21]], handle=AutoHandle [name=핸들2, type=경주용]]
 		System.out.println("car3: " + context.getBean("car3"));
 		
-		// constructor
+		// constructor 연결
+		// 생성자 실행 조건이 모두 충족할 경우 매개변수가 많은 생성자로 생성. 매개변수 할당 우선순위: 1. byName  2. byType
+		// 엔진은 타입때문에 핸들은 이름때문에 인 듯?
+		// 바퀴의 경우 핸들이 2개여서 충돌이 나서 오류때문에 null로 들어가는 거 같음
+		// car4: AutoCar [name=야타, eng=AutoEngine [name=V4기통, power=500], whs=null, handle=AutoHandle [name=핸들2, type=경주용]]
 		System.out.println("car4: " + context.getBean("car4"));
 
 	}

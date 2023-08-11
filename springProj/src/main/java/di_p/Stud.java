@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Stud implements Comparable<Stud>{
 
-	String name;
+	String name, grade;
 	int [] jum;
 	int tot, avg, rank;
 	public void setName(String name) {
@@ -29,9 +29,16 @@ public class Stud implements Comparable<Stud>{
 			}
 		}
 	}
+	
+	
+	
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
 	@Override
 	public String toString() {
-		return "" + name + "\t" + Arrays.toString(jum) + "\t" + tot + "\t" + avg + "\t"+rank;
+		return name  + "\t" + Arrays.toString(jum) + "\t" + tot + "\t"
+				+ avg + "\t" + rank+ "\t" + grade;
 	}
 	@Override
 	public int compareTo(Stud you) {

@@ -13,7 +13,7 @@ https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 	</bean>-->
 	
 	<!--<bean class="di_p.AutoCar" name="car2" autowire="byType" p:name="말도타" p:handle-ref="hhdd1"/>-->
-	
+
 	<bean class="di_p.AutoHandle" name="hhdd1" p:name="핸들1" p:type="승용차용"/>
 	<!--<bean class="di_p.AutoHandle" name="hhdd2" p:name="핸들2" p:type="경주용"/>-->
 	<bean class="di_p.AutoHandle" name="handle" p:name="핸들2" p:type="경주용"/>
@@ -35,8 +35,7 @@ https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 				<ref bean="wh4" />
 			</list>
 		</constructor-arg>
-	</bean>	
-	
+	</bean>		
 	<bean class="java.util.ArrayList" name="whqwer">
 		<constructor-arg>
 			<list>
@@ -52,6 +51,5 @@ https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 	1. byName
 	2. byType-->
 	<!--<bean class="di_p.AutoCar" name="car4" autowire="constructor" p:name="야타"/>-->
-
 
 </beans>
