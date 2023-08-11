@@ -7,10 +7,7 @@
     <fullyQualifiedTypeName name="exercise.Bike0"/>
     <fullyQualifiedTypeName name="exercise.Bike2"/>
     <fullyQualifiedTypeName name="di_p.HamburgerSet"/>
-    <fullyQualifiedTypeName name="java.util.HashSet"/>
-    <fullyQualifiedTypeName name="java.util.LinkedHashSet"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="exer2.Student"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="exer2.SRank"/>
@@ -20,4 +17,10 @@
     <fullyQualifiedTypeName name="di_p.CoffeeShop"/>
     <fullyQualifiedTypeName name="di_p.Coffee"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.HashSet"/>
+    <fullyQualifiedTypeName name="java.util.LinkedHashSet"/>
+    <fullyQualifiedTypeName name="java.util.TreeSet"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
 </qualifiedTypeNameHistroy>
