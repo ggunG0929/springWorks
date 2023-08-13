@@ -8,16 +8,17 @@ https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 http://www.springframework.org/schema/context
 https://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-	<!--가격 연산을 위해-->
+	<!-- 세트 이름과 세트 가격 주입을 위해 -->
 	<bean class="exer6.Exer6BeanPostProcessor"/>
 
 	<bean class="exer6.Jujum" name="sp1" autowire="byName"/>
 	<bean class="exer6.Jujum" name="sp2" autowire="constructor"/>
 	
 	<bean class="exer6.Anju" name="a1" p:menu="치킨" p:side="양배추샐러드" p:price="20000"/>
-	<bean class="exer6.Anju" name="a2" p:menu="매운 닭발" p:side="계란찜" p:price="17000"/>
+	<bean class="exer6.Anju" name="a2" p:menu="피자" p:side="마약옥수수" p:price="17000"/>
 	
 	<bean class="exer6.Alcohol" name="ac1" p:name="맥주" p:price="4000"/>
+	<bean class="exer6.Alcohol" name="ac2" p:name="소주" p:price="4000"/>
 	
 	<context:annotation-config/>
 

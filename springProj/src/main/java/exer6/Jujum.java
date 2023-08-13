@@ -1,17 +1,31 @@
 package exer6;
 
+import java.text.DecimalFormat;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import jakarta.annotation.Resource;
 
-// Alcohol은 Resource(name="ac1")을 통해 고정하고
-// Anju는 autowire byname과 constructor를 통해 다르게 
+//// Alcohol은 resource(name="ac1")"을 통해 고정하고 - 어떤 어노테이션이 우선인지 알 수 없어 오류생김
+// Alcohol은 autowire-qualifier="ac1"을 통해 고정하고
+// Anju는 autowire-byname과 constructor를 통해 다르게 
 public class Jujum {
 	String name;
+//	@Autowired
+//	@Qualifier("a1")
 	Anju anju;
+//	@Resource(name="ac1")
 	Alcohol alc;
 	int price;
 	
 	// Constructor
-	public Jujum(Anju a2, Alcohol alc) {
+	// resource를 사용하면 어떤 어노테이션이 우선인지 알 수 없어 오류생김
+	// 'exer6.Alcohol' available: expected single matching bean but found 2: ac1,ac2
+//	public Jujum(Anju a2, Alcohol alc) {
+	// Autowire Qualifier
+	@Autowired
+	public Jujum(Anju a2, @Qualifier("ac1")Alcohol alc) {
 		super();
 		this.anju = a2;
 		this.alc = alc;
@@ -26,15 +40,14 @@ public class Jujum {
 	public void setA1(Anju anju) {
 		this.anju = anju;
 	}
-	// 생성자가 쓰일 때는 어노테이션을 위에서 쓰면 안먹힘
-	@Resource(name="ac1")
+
 	public void setAlc(Alcohol alc) {
 		this.alc = alc;
 	}
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	// postprocessor에서 쓰기 위해 getter
+	// post processor에서 쓰기 위해 getter
 	public String getName() {
 		return name;
 	}
@@ -49,7 +62,8 @@ public class Jujum {
 //	}
 	@Override
 	public String toString() {
-		return name + "나갑니다! " + anju + "술로는 " + alc + "가 함께합니다. 가격은 " + price + "입니다.";
+		DecimalFormat df = new DecimalFormat("###,###");
+		return name + " 나갑니다! " + anju + "술로는 " + alc + "가 딱이죠? 가격은 " + df.format(price) + "원 입니다.";
 	}
 }
 
@@ -77,7 +91,7 @@ class Anju{
 	}
 	@Override
 	public String toString() {
-		return menu + "에 서비스는 " + side + "~ ";
+		return menu + "에 세트서비스로 " + side + "까지~ ";
 	}
 }
 
