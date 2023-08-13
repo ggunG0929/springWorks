@@ -19,7 +19,7 @@ public class AutoCar{
 //		this.handle = handle;
 //	}
 	
-	// 매개변수로 받을 때 에러가 발생되는 경우에는 작동되지 않음(handle hjkl)
+	// 매개변수로 받을 때 에러가 발생되는 경우에는 작동되지 않음(handle hjkl) - 그래서 car4가 다음 생성자문을 적용함
 	public AutoCar(AutoEngine eng, List<AutoWheel> whs, AutoHandle hjkl) {
 		super();
 		this.eng = eng;
@@ -32,6 +32,7 @@ public class AutoCar{
 	// 매개변수 할당 우선순위
 	// 1. byName
 	// 2. byType
+	// car4가 이 생성자문을 이용하여 빈을 주입하는데 whs가 정의되지 않았기에 null이 됨
 	public AutoCar(AutoEngine eng, AutoHandle handle) {
 		super();
 		this.eng = eng;

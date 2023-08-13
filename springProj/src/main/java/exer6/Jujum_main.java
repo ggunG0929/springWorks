@@ -8,6 +8,7 @@ public class Jujum_main {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("anno_xml/exer6.xml");
 
 		System.out.println(context.getBean("sp1"));
+		System.out.println(context.getBean("sp2"));
 		
 		context.close();
 	} 

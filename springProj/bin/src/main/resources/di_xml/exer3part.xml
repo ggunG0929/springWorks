@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean class="exer3.Meal" name="mo">
+		<constructor-arg value="토스트"/>
+		<constructor-arg value="샐러드"/>
+		<constructor-arg value="우유"/>
+	</bean>
+	<bean class="exer3.Meal" name="lu">
+		<constructor-arg value="제육덮밥"/>
+		<constructor-arg value="콩나물국"/>
+		<constructor-arg value="물"/>
+	</bean>
+	<bean class="exer3.Meal" name="di">
+		<constructor-arg value="삼겹살"/>
+		<constructor-arg value="된장찌개"/>
+		<constructor-arg value="소주"/>
+	</bean>
+	
+</beans>
