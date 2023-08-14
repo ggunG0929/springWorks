@@ -23,7 +23,16 @@
     <fullyQualifiedTypeName name="java.util.TreeSet"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.util.Comparator"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Qualifier"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="anno_p.com.sub2.Monitor"/>
+    <fullyQualifiedTypeName name="exer7.Caramelmakiato"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
     <fullyQualifiedTypeName name="jakarta.annotation.Resource"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+    <fullyQualifiedTypeName name="anno_p.comabc.NoteBook"/>
+    <fullyQualifiedTypeName name="anno_p.comabc.Monitor"/>
+    <fullyQualifiedTypeName name="anno_p.com.sub1.Mouse"/>
+    <fullyQualifiedTypeName name="anno_p.com.WorkStation"/>
+    <fullyQualifiedTypeName name="anno_p.com.Bonche"/>
 </qualifiedTypeNameHistroy>
