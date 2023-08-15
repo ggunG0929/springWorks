@@ -1,7 +1,0 @@
-package exercise;
-
-public interface Bike0 {
-
-	void bike();
-
-}

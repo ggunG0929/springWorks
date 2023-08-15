@@ -1,8 +1,0 @@
-package exercise;
-
-public class Bike {
-	String name;
-	Tire tire;
-	Handle handle;
-	Basket basket;
-}

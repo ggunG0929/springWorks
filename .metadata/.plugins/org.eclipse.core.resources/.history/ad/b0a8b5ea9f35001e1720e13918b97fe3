@@ -1,7 +1,0 @@
-package exercise;
-
-public class Handle {
-	String name;
-	int cnt;
-
-}

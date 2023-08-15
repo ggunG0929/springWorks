@@ -1,9 +1,0 @@
-package exercise;
-
-public interface Bike0 {
-	String name;
-	Tire tire;
-	Handle handle;
-	Basket basket;
-
-}
