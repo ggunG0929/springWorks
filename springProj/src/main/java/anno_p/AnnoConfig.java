@@ -8,7 +8,6 @@ import org.springframework.context.annotation.ImportResource;
 @ImportResource("anno_xml/Autowire.xml")
 @ComponentScan(basePackages = "anno_p.com")
 public class AnnoConfig {
-	
 	@Bean
 	BiHandle hd1() {
 		return new BiHandle("일자핸들", "산악용");

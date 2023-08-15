@@ -1,12 +1,7 @@
 package anno_p.main;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import anno_p.com.Bonche;
-import anno_p.com.WorkStation;
-import anno_p.com.sub1.Mouse;
 
 public class Bean_main {
 	

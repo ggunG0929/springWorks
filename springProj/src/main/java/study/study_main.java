@@ -1,6 +1,5 @@
 package study;
 
-import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class study_main {
@@ -41,8 +40,8 @@ public class study_main {
 		System.out.println("a"+10+5);	// 스트링은 객체자료형이고 > int가 기본자료형이어서 자동형변환 발생
 		System.out.println('a'+10+5);	// char a = 97
 				
-//		System.out.println("정수를 입력해주세요");
 		Scanner sc = new Scanner(System.in);
+//		System.out.println("정수를 입력해주세요");
 //		int num1=sc.nextInt();
 //		System.out.println("정수를 입력해주세요");
 //		int num2=sc.nextInt();
