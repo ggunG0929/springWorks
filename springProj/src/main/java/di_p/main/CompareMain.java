@@ -77,15 +77,15 @@ public class CompareMain {
 		System.out.println("al:"+al);
 		
 		// s1:[33, 66, 22, 88, 44, 77]
-		// 중복제거, 순서 바뀜
+		// hashset: 중복제거, 순서 바뀜
 		System.out.println("s1:"+s1);
 		
 		// s2:[66, 33, 88, 77, 22, 44]
-		// 중복만 제거
+		// linkedhashset: 중복만 제거
 		System.out.println("s2:"+s2);
 		
 		// s3:[22, 33, 44, 66, 77, 88]
-		// 중복제거, 오름차순
+		// treeset: 중복제거, 오름차순
 		System.out.println("s3:"+s3);
 		
 		System.out.println("-------------------------------------");

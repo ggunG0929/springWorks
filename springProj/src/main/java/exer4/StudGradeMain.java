@@ -17,7 +17,6 @@ public class StudGradeMain {
 		System.out.println(context.getBean("st5"));
 		System.out.println(context.getBean("st6"));
 		
-		
 	}
 
 }

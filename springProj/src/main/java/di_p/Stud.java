@@ -9,6 +9,7 @@ public class Stud implements Comparable<Stud>{
 	String name, grade;
 	int [] jum;
 	int tot, avg, rank;
+	
 	public void setName(String name) {
 		this.name = name;
 	}

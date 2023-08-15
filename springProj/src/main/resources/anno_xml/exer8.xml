@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+http://www.springframework.org/schema/context
+https://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<!--property방식은 di에 실패함-->
+<!--	<bean class="exer8.closet.Outfit" name="of2" p:name="바다" />-->
+	<bean class="exer8.closet.Outfit" name="of2">
+	    <constructor-arg value="바다"/>
+	    <constructor-arg ref="h1"/>
+	    <constructor-arg ref="c1"/>
+	    <constructor-arg ref="acc1"/>
+	    <constructor-arg ref="sh1"/>
+	</bean>
+	<bean class="exer8.closet.Outfit" name="of4">
+	    <constructor-arg value="스키장"/>
+	    <constructor-arg ref="h2"/>
+	    <constructor-arg ref="c2"/>
+	    <constructor-arg ref="acc2"/>
+	    <constructor-arg ref="sh2"/>
+	</bean>
+	
+	<bean class="exer8.closet.Hat" name="h1" p:name="수영모" />
+	<bean class="exer8.closet.Hat" name="h2" p:name="털모자" />
+
+	<bean class="exer8.closet.Clothes" name="c1" p:name="수영복" />
+	<bean class="exer8.closet.Clothes" name="c2" p:name="스키복" />
+
+	<bean class="exer8.closet.Accessory" name="acc1" p:name="물안경" />
+	<bean class="exer8.closet.Accessory" name="acc2" p:name="고글" />
+
+	<bean class="exer8.closet.Shoes" name="sh1" p:name="오리발" />
+	<bean class="exer8.closet.Shoes" name="sh2" p:name="패딩신발" />
+	
+
+</beans>

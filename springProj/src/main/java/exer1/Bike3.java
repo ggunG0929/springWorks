@@ -1,12 +1,23 @@
-package exercise;
+package exer1;
 
 public class Bike3 implements Bike0{
 	String name = "세발자전거";
 	Tire tire;
 	Handle handle;
-	Basket basket;
 	String intf = "";
 
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setTire(Tire tire) {
+		this.tire = tire;
+	}
+	public void setHandle(Handle handle) {
+		this.handle = handle;
+	}
+	public void setIntf(String intf) {
+		this.intf = intf;
+	}
 	@Override
 	public String toString() {
 		return name + intf;

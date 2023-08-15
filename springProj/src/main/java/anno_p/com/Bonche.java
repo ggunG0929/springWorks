@@ -2,6 +2,7 @@ package anno_p.com;
 
 import org.springframework.stereotype.Component;
 
+// bbcc로 불러올 수 있게 됨
 @Component("bbcc")
 public class Bonche {
 	String name="삼보트라이젠", cpu="1.33Ghz";

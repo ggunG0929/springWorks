@@ -1,22 +1,23 @@
-package di_p.main;
+package di_p;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 public class DIColl {
 	
-	String nick;
-	int age;
+	// Collection main과 다른 클래스라서 public 필요
+	public String nick;
+	public int age;
 	
-	int [] arr, arr1;	// arr1 추가
+	public int [] arr;	// arr1 추가
+	public int [] arr1;
 	
-	List arr2;
+	public List arr2;
 	
-	Set ss1;
+	public Set ss1;
 
-	Map mm1;
+	public Map mm1;
 	
 	
 

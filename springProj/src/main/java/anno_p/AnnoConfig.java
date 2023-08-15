@@ -31,7 +31,6 @@ public class AnnoConfig {
 	@Bean
 	BiCycle mtb(BiHandle hd1, BiWheel wh1) {
 		return new BiCycle("삼천리", hd1, wh1);
-		
 	}
 	
 	@Bean

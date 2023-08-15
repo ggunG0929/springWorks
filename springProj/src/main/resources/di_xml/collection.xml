@@ -77,7 +77,7 @@ https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 			</array>
 		</constructor-arg>
 	</bean>-->
-	<bean class="di_p.main.DIColl" name="dic">
+	<bean class="di_p.DIColl" name="dic">
 		<property name="nick" value="정우성"/>
 		<property name="age" value="50"/>
 		<property name="arr">

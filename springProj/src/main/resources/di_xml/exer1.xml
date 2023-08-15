@@ -4,7 +4,7 @@ xmlns="http://www.springframework.org/schema/beans"
 xsi:schemaLocation="http://www.springframework.org/schema/beans
 https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
-	<bean class="exercise.Bike" name="bk1">
+	<bean class="exer1.Bike" name="bk1">
 		<property name="name">
 			<value>세발자전거</value>
 		</property>
@@ -16,7 +16,7 @@ https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 		</property>
 	</bean>
 	
-	<bean class="exercise.Bike" name="bk2">
+	<bean class="exer1.Bike" name="bk2">
 		<property name="name">
 			<value>포카리자전거</value>
 		</property>
@@ -31,7 +31,7 @@ https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 		</property>
 	</bean>
 	
-	<bean class="exercise.Bike" name="bk3">
+	<bean class="exer1.Bike" name="bk3">
 		<property name="name">
 			<value>MTB</value>
 		</property>
@@ -43,18 +43,57 @@ https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 		</property>
 	</bean>
 	
-	<bean class="exercise.Tire" name="t3">
+	<bean class="exer1.Bike1" name="bk4">
+		<property name="name">
+			<value>MTB</value>
+		</property>
+		<property name="Tire">
+			<ref bean="t2"/>
+		</property>
+		<property name="Handle">
+			<ref bean="h1"/>
+		</property>
+	</bean>
+	
+	<bean class="exer1.Bike2" name="bk5">
+		<property name="name">
+			<value>포카리자전거</value>
+		</property>
+		<property name="Tire">
+			<ref bean="t2"/>
+		</property>
+		<property name="Handle">
+			<ref bean="h1"/>
+		</property>
+		<property name="Basket">
+			<ref bean="b1"/>
+		</property>
+	</bean>
+		
+	<bean class="exer1.Bike3" name="bk6">
+		<property name="name">
+			<value>세발자전거</value>
+		</property>
+		<property name="Tire">
+			<ref bean="t3"/>
+		</property>
+		<property name="Handle">
+			<ref bean="h1"/>
+		</property>
+	</bean>
+	
+	<bean class="exer1.Tire" name="t3">
 		<property name="name" value="바퀴"/>
 		<property name="cnt" value="3"/>
 	</bean>
-	<bean class="exercise.Tire" name="t2">
+	<bean class="exer1.Tire" name="t2">
 		<property name="name" value="바퀴"/>
 		<property name="cnt" value="2"/>
 	</bean>
-	<bean class="exercise.Handle" name="h1">
+	<bean class="exer1.Handle" name="h1">
 		<property name="name" value="핸들"/>
 	</bean>
-	<bean class="exercise.Basket" name="b1">
+	<bean class="exer1.Basket" name="b1">
 		<property name="name" value="바구니"/>
 	</bean>
 	

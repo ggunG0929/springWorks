@@ -1,4 +1,4 @@
-package exercise;
+package exer1;
 
 public class Basket {
 	String name;
