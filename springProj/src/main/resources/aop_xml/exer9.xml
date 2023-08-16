@@ -11,14 +11,14 @@ https://www.springframework.org/schema/context/spring-context-4.3.xsd
 http://www.springframework.org/schema/aop
 https://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-	<context:component-scan base-package="aop_p.webToon" />
+	<context:component-scan base-package="exer9" />
 	
-	<bean class="aop_p.adv.AroundAdvice" name="arAdvice" />
+	<bean class="exer9.AroundAdvice" name="arAdvice" />
 	<aop:config>
 		<aop:aspect ref="arAdvice">
 			  <!-->> arTest 진입 jsk.dog1:null (wife도)-->
 			  <!--arTest를 around로 건다 pointcut=웹툰 클래스의 하위 모든 클래스의 public String 모든 매개변수를 쓰는 경우-->
-			<aop:around method="arTest" pointcut="execution(public String aop_p.webToon..* (..))" />
+			<aop:around method="arTest" pointcut="execution(public String exer9..* (..))" />
 		</aop:aspect>
 	</aop:config>
 
