@@ -11,14 +11,13 @@ https://www.springframework.org/schema/context/spring-context-4.3.xsd
 http://www.springframework.org/schema/aop
 https://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-	<context:component-scan base-package="aop_p.webToon" />
-	
-	<bean class="aop_p.adv.FishAdvice" name="fishAdvice"/>
+	<context:component-scan base-package="exer11" />
+	<bean class="exer11.Advice" name="advice"/>
 	<aop:config>
-		<aop:aspect ref="fishAdvice">
-			  <!-->> arTest 진입 jsk.dog1:null (wife도)-->
-			  <!--arTest를 around로 건다 pointcut=웹툰 클래스의 하위 모든 클래스의 public String 모든 매개변수를 쓰는 경우-->
-			<aop:around method="fishTest" pointcut="execution(public * aop_p.webToon.KangBada.* (..))" />
+		<aop:aspect ref="advice">
+			<aop:after method="jigjang" pointcut="args(aa,bb)" />
+			<aop:after method="normal" pointcut="args(aa,bb,cc)" />
+			<aop:after method="art" pointcut="args(aa,bb,cc,dd)" />
 		</aop:aspect>
 	</aop:config>
 

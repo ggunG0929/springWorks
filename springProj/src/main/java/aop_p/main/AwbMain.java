@@ -7,11 +7,11 @@ import aop_p.webToon.JoSuk;
 import aop_p.webToon.KangBada;
 import aop_p.webToon.KangSan;
 
-public class ExecMain {
+public class AwbMain {
 
 	public static void main(String[] args) {
 		AbstractApplicationContext context = 
-				new ClassPathXmlApplicationContext("aop_xml/exec.xml");
+				new ClassPathXmlApplicationContext("aop_xml/awb.xml");
 		
 		JoSuk jsk = context.getBean("joSuk",JoSuk.class);
 		KangBada kbd = context.getBean("kbd",KangBada.class);
@@ -56,7 +56,6 @@ public class ExecMain {
 		// claKang: KangSan.yunFish()
 		kangSan.yunFish();
 		System.out.println("---------------");
-		
 		// ExecAdvice2 - oOrJo:KangSan.ra9yo()
 		// KangSan.라구요()
 		// claKang: KangSan.ra9yo()
@@ -65,9 +64,14 @@ public class ExecMain {
 		kangSan.ra9yo();
 		System.out.println("---------------");
 		
-
-		
-		
+		/*
+		 * 학생성적을 계산하세요
+		 * 과목 2: 직장인학생
+		 * 과목 3: 일반학생
+		 * 과목 4: 예체능학생
+		 * 
+		 * aop를 이용하여 각 학생분류별 인원수와 평균의 합계, 평균의 평균을 구하세요
+		 * */
 	}
 
 }

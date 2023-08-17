@@ -10,6 +10,7 @@ public class JoSuk {
 //		System.out.println("센세이션은 찢찢");
 //		return "센세이션";
 //	}
+	// 매개변수 추가
 	public String dog1(int aa, String bb) {
 		System.out.println("센세이션은 찢찢 "+aa+", "+bb);
 		return "센세이션";
@@ -26,9 +27,15 @@ public class JoSuk {
 //		System.out.println("조철왕");
 //		return 4000;
 //	}
+	// 매개변수 추가
 	public int papa(int c) {
 		System.out.println("조철왕:"+c);
 		return 4000;
+	}
+	
+	public int nums(int c) {
+		System.out.println("nums:"+ c);
+		return 100/c;
 	}
 
 }
