@@ -13,12 +13,12 @@ public class FoodMain {
 		AbstractApplicationContext context = 
 				new ClassPathXmlApplicationContext("aop_xml/exer12.xml");
 		Food f = context.getBean("food", Food.class);
-        Order order = context.getBean("order", Order.class);
+        Order o = context.getBean("order", Order.class);
 
 //		f.food("불고기덮밥", 2);
 //		f.food("김치찌개", "공기밥", 2);
 		
-		order.setFl(f.food("불고기덮밥", 1), f.food("김치찌개", "공기밥", 2));
+		o.order((f.food("불고기덮밥", 1), f.food("김치찌개", "공기밥", 2)));
 		System.out.println("---------------");
 
 		context.close();

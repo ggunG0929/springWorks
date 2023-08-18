@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--타임리프언어(th: )를 쓰려면-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>attrReg</title>
+</head>
+<body>
+<h1>request/attrReg</h1>
+<!-- thymeleaf: <%=request.attribute%> -->
+age: [[${age}]]<br/>
+pname: [[${pname}]]<br/>
+<!-- 주소?가 계속 바뀐다 -->
+jum: [[${jum}]]<br/>
+<hr/>
+<th:block th:each="j:${jum}">
+	[[${j}]]<br/>
+</th:block>
+<hr/>
+now: [[${now}]]<br/>
+per: [[${per}]]<br/>
+<!--getter가 없으면 에러-->
+per: [[${per.pname}]], [[${per.mil}]]<br/>
+</body>
+</html>

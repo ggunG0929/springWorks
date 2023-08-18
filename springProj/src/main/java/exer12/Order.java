@@ -1,6 +1,5 @@
 package exer12;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.springframework.stereotype.Component;
@@ -9,24 +8,19 @@ import exer12.model.Food;
 
 @Component
 public class Order {
-	ArrayList<Food> fl;
+	Food[] fl;
 	int tot;
 	
-	public void setFl(ArrayList<Food> fl) {
+	public Order(Food...fl) {
+		super();
 		this.fl = fl;
 	}
-	public void setTot(int tot) {
-		this.tot = tot;
-	}
-	public String ordered(Food ... foods) {
-		
-		return null;
-		
-	}
+
 	@Override
 	public String toString() {
-		return "Order [fl=" + fl + ", tot=" + tot + "]";
+		return "Order [fl=" + Arrays.toString(fl) + ", tot=" + tot + "]";
 	}
+
 }
 
 	

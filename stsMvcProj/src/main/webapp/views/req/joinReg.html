@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--타임리프언어(th: )를 쓰려면-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>joinReg</title>
+</head>
+<body>
+<h1>request/joinReg</h1>
+<!-- thymeleaf: <%=request.attribute%> -->
+<table>
+	<tr>
+		<td>이름</td>
+		<td>성별</td>
+		<td>군필</td>
+	</tr>
+	<tr th:block th:each="per:${person}">
+<!--	<tr th:block th:each="per:${person}">-->
+		<td>[[${per.pname}]]</td>
+		<td>[[${per.gender}]]</td>
+		<td>[[${per.mil}]]</td>
+	</tr th: block>
+<!--	</tr th: block>-->
+</table>
+</body>
+</html>
