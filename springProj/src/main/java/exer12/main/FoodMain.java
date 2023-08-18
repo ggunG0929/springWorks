@@ -3,6 +3,7 @@ package exer12.main;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import exer12.Order;
 import exer12.model.Food;
 
 public class FoodMain {
@@ -11,19 +12,16 @@ public class FoodMain {
 		
 		AbstractApplicationContext context = 
 				new ClassPathXmlApplicationContext("aop_xml/exer12.xml");
+		Food f = context.getBean("food", Food.class);
+        Order order = context.getBean("order", Order.class);
+
+//		f.food("불고기덮밥", 2);
+//		f.food("김치찌개", "공기밥", 2);
 		
-		Food f = context.getBean("food",Food.class);
-
-		// 	public String dog1(int aa, String bb) {
-		// 		System.out.println("센세이션은 찢찢 "+aa+", "+bb);
-		//		return "센세이션";
-
-		f.food("불고기", 2);
+		order.setFl(f.food("불고기덮밥", 1), f.food("김치찌개", "공기밥", 2));
 		System.out.println("---------------");
 
-		System.out.println("---------------");
-
-		System.out.println("---------------");
+		context.close();
 		
 	}
 }

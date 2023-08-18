@@ -17,25 +17,35 @@ import org.springframework.stereotype.Component;
 @Component
 public class Food {
 	String name;
-	public String type;
 	int cnt;
 
-	public void food(String aa, int bb) {
-		type = "덮밥";
-		name = aa + type;
-		cnt = bb;
-		System.out.println(type+", "+name+", "+cnt);
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void food(String aa, String 공기밥, int bb) {
-		type = "찌개";
-		name = aa + type;
-		cnt = bb;
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
+
+	public Food food(String aa, int bb) {
+		Food food = new Food();
+		food.setName(aa);
+		food.setCnt(bb);
+		System.out.println(food.name+", "+food.cnt);
+		return food;
+	}
+
+	public Food food(String aa, String cc, int bb) {
+		Food food = new Food();
+		food.setName(aa+"와 "+cc);
+		food.setCnt(bb);
+		System.out.println(food.name+", "+food.cnt);
+		return food;
 	}
 
 	@Override
 	public String toString() {
-		return "Food [type=" + type + ", name=" + name + ", cnt=" + cnt + "]";
+		return "Food [name=" + name + ", cnt=" + cnt + "]";
 	}
 
 }

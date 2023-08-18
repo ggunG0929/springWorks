@@ -18,21 +18,30 @@ import exer12.model.Food;
 @Service
 @Aspect
 public class FoodAdvice {
-	@Pointcut("execution(* exer12..* (..))")
-	void pc() {}
-	
-	@After("pc()")
-	void afterrr(JoinPoint joinPoint) {
-		System.out.println(">>>afterrr: "+joinPoint.getSignature().toShortString());
+	int sum1=0, sum2=0;
+	int cnt0;
+	@Around("args(aa, bb)")
+	Object dup(ProceedingJoinPoint joinPoint, String aa, int bb) {
+		Object res = null;
+		try {
+			res = joinPoint.proceed();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		System.out.println("덮지나가욥");
+		return res;
 	}
-	@Before("args(aa, bb)")
-	Object dup(JoinPoint joinPoint, int aa, int bb) {
+	@Around("args(aa, cc, bb)")
+	Object jji(ProceedingJoinPoint joinPoint, String aa, String cc, int bb) {
+		Object res = null;
+		try {
+			joinPoint.proceed();
+			Food f = (Food)joinPoint.getTarget();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
 		System.out.println("지나가욥");
-		return "덮밥이지롱";
-	}
-	@Around("args(aa, 공기밥, cc)")
-	void jji(ProceedingJoinPoint joinPoint, int aa, String 공기밥, int cc) {
-		System.out.println("찌개지롱");
+		return res;
 	}
 //	@Around("pc()")
 //	Object arTest(ProceedingJoinPoint joinPoint) {
