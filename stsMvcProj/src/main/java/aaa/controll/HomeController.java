@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 // 컨트롤러 어노테이션
 @Controller
+@RequestMapping("/")
 public class HomeController {
 	
 	// responsebody까지 붙여줘야 homehome이 뜸

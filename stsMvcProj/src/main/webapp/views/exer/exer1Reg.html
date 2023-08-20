@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>exer1Reg</title>
+<script type="text/javascript">
+	function sortChange(){
+		sortForm.submit();
+	}
+</script>
+</head>
+<body>
+<h1>exer1Reg</h1>
+<form id="sortForm" method="post" action="">
+	<!--한번에 넘기려고 하니 정보가 안 넘어감-->
+<!--	<input type="hidden" name="exer1Data" th:value="${exer1Data}" />-->
+	<!-- 각 요소들의 필드들을 개별적으로 전송 -->
+<th:block th:each="tt, ttIndex : ${exer1Data.titles}">
+    <input type="hidden" th:name="|titles[${ttIndex.index}]|" th:value="${tt}" />
+</th:block>
+<th:block th:each="st, stIndex : ${exer1Data.studs}">
+    <input type="hidden" th:name="|studs[${stIndex.index}].ban|" th:value="${st.ban}" />
+    <input type="hidden" th:name="|studs[${stIndex.index}].name|" th:value="${st.name}" />
+	<th:block th:each="jum, jumIndex : ${st.jumsu}">
+	    <input type="hidden" th:name="|studs[${stIndex.index}].jumsu[${jumIndex.index}]|" th:value="${jum}" />
+	</th:block>
+</th:block>
+	<!-- 각 요소들의 필드들을 개별적으로 전송 끝 -->
+	<table border="" style="border-collapse: collapse">
+		<tr>
+			<td colspan="4">정렬기준:
+				<select name="sort" id="sortSelect" onchange="sortChange()">
+					<option selected>입력</option>
+					<option>반</option>
+					<option>이름</option>
+					<option>성적</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>반</td>
+			<td>이름</td>
+			<td th:each="title : ${exer1Data.titles}">
+				[[${title}]]
+			</td>
+			<td>총점</td>
+			<td>평균</td>
+			<td>등수</td>
+		</tr>
+		<tr th:each="st : ${exer1Data.studs}">
+			<td>[[${st.ban}]]</td>
+			<td>[[${st.name}]]</td>
+			<td th:each="i : ${#numbers.sequence(0, st.jumsu.size()-1)}">
+				[[${st.jumsu[i]}]]
+			</td>
+			<td>[[${st.tot}]]</td>
+			<td>[[${st.avg}]]</td>
+			<td>[[${st.rank}]]</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

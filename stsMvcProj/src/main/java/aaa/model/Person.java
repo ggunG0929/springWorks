@@ -9,13 +9,14 @@ import lombok.Data;
 @AllArgsConstructor		// getter? 요소를 불러올 수 있음
 public class Person {
 	
+	String pname, gender;
+	boolean mil;
+
 	public Person() {
 		// TODO Auto-generated constructor stub
 	}
-	String pname="qqaaz", gender;
-	boolean mil;
 	
-	// lombok.data 사용시 생략가능
+//	// lombok.data 사용시 생략가능
 //	public Person(String pname, String gender, boolean mil) {
 //		super();
 //		this.pname = pname;

@@ -13,15 +13,17 @@ import aaa.model.Person;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
+// 이 경로로 들어온다면 적용한다
 //@RequestMapping("request/attr1")
 @RequestMapping("request")
 public class RequestController {
 
 //	@RequestMapping("request/attr1")
 	@RequestMapping("attr1")
+	// 모델(변수 전달)과 뷰(뷰의 이름)를 동시에 반환하는 인스턴스
 	ModelAndView attr1() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("req/attr");
+		mav.setViewName("req/attr");	// 여기로 이동하도록 함
 		mav.addObject("age", 29);
 		mav.addObject("pname", "정우성");
 		mav.addObject("jum", new int[] {78,89,34});
@@ -41,6 +43,7 @@ public class RequestController {
 //		mav.addObject("per", new Person("장동건", "남", true));
 //		return mav;
 //	}
+	
 	@RequestMapping("attr2")
 	// http request 방식도 잘 돌아감
 	String attr2(HttpServletRequest request) {
@@ -53,6 +56,7 @@ public class RequestController {
 	}
 	
 	@RequestMapping("attr3")
+	// Model을 쓰면 자동으로 model and view 객체를 생성, 데이터를 추가하고 뷰를 반환함
 	String attr3(Model mm) {
 		mm.addAttribute("age", 17);
 		mm.addAttribute("pname", "정북성");
@@ -112,14 +116,12 @@ public class RequestController {
 	}
 	
 	@RequestMapping("joinReg")
-	ModelAndView joinReg(Model mm,
-			@ModelAttribute("pname") String pname, 
-			@ModelAttribute("gender") String gender, 
-			@ModelAttribute("mil") boolean mil,
-			Person per) {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("req/joinReg");
-		mav.addObject("per", per);
-		return mav;
+	String joinReg(Model mm, String pname, String gender, boolean mil) {
+	    Person per = new Person();
+	    per.setPname(pname);
+	    per.setGender(gender);
+	    per.setMil(mil);
+	    mm.addAttribute("per", per); // Person 객체를 Model에 추가
+	    return "req/joinReg";
 	}
 }

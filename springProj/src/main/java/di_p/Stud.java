@@ -3,7 +3,6 @@ package di_p;
 import java.util.Arrays;
 import java.util.List;
 
-
 public class Stud implements Comparable<Stud>{
 
 	String name, grade;
@@ -13,6 +12,7 @@ public class Stud implements Comparable<Stud>{
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public void setJum(int... jum) {
 		this.jum = jum;
 		tot = 0;
@@ -31,11 +31,10 @@ public class Stud implements Comparable<Stud>{
 		}
 	}
 	
-	
-	
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
+	
 	@Override
 	public String toString() {
 		return name  + "\t" + Arrays.toString(jum) + "\t" + tot + "\t"
@@ -51,6 +50,5 @@ public class Stud implements Comparable<Stud>{
 		}
 		return res;
 	}
-	
 	
 }

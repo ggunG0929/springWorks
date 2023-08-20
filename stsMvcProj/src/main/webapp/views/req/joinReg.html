@@ -14,13 +14,11 @@
 		<td>성별</td>
 		<td>군필</td>
 	</tr>
-	<tr th:block th:each="per:${person}">
-<!--	<tr th:block th:each="per:${person}">-->
+	<tr>
 		<td>[[${per.pname}]]</td>
 		<td>[[${per.gender}]]</td>
 		<td>[[${per.mil}]]</td>
-	</tr th: block>
-<!--	</tr th: block>-->
+	</tr>
 </table>
 </body>
 </html>
