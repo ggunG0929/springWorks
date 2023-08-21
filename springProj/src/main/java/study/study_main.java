@@ -1,5 +1,7 @@
 package study;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -207,25 +209,57 @@ public class study_main {
 //				break;
 //			}
 //		}
+//		
+//		int [] arr = new int[5];
+//		System.out.println("정수 5개를 입력해주세요");
+//		int sum=0;
+//		int min=0;
+//		int max=0;
+//		for(int i=0; i<arr.length; i++) {
+//			arr[i]=sc.nextInt();
+//			sum += arr[i];
+//			if(i==0) {				
+//				min=arr[0];
+//				max=arr[0];
+//			}else if(min>arr[i]) {
+//				min = arr[i];
+//			}else if(max<arr[i]) {
+//				max = arr[i];
+//			}
+//		}
+//		System.out.println("최소값: "+min+", 최대값: "+max+", 총합: "+sum);
 		
-		int [] arr = new int[5];
-		System.out.println("정수 5개를 입력해주세요");
-		int sum=0;
-		int min=0;
-		int max=0;
+//		String[] arr = new String[30]; 
+//		System.out.println(arr.length);
+		System.out.println("영단어를 입력해주세요");
+//		String [] ar = sc.next().split("");
+//		System.out.println(Arrays.toString(ar));
+//		System.out.println(ar.length);
+//		for(int i=0; i<ar.length; i++) {
+//			arr[i]=ar[i];
+//		}
+//		int max=0;
+//		String str = sc.next();
+//		String [] ar = str.split("");
+//		int [] cl = new int [ar.length];
+//		for(int i=0; i<ar.length; i++) {
+//			cl[i]  = str.charAt(i);
+//			if(i==0) {
+//				max=cl[0];
+//			}else {
+//				if(cl[i]>max) {
+//					max = cl[i];
+//				}
+//			}
+//		}
+//		System.out.println((char)max);
+		String str = sc.next();
+		String [] arr = str.split("");
+		String str2="";
 		for(int i=0; i<arr.length; i++) {
-			arr[i]=sc.nextInt();
-			sum += arr[i];
-			if(i==0) {				
-				min=arr[0];
-				max=arr[0];
-			}else if(min>arr[i]) {
-				min = arr[i];
-			}else if(max<arr[i]) {
-				max = arr[i];
-			}
+			str2 += arr[arr.length-(i+1)];
 		}
-		System.out.println("최소값: "+min+", 최대값: "+max+", 총합: "+sum);
+		System.out.println(str2);
 	}
 
 }

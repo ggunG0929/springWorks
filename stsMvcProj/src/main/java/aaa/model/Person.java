@@ -11,6 +11,10 @@ public class Person {
 	
 	String pname, gender;
 	boolean mil;
+	
+	String id;
+	int age;
+	boolean marriage;
 
 	public Person() {
 		// TODO Auto-generated constructor stub

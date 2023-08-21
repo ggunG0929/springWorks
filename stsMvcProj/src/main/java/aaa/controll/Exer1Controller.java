@@ -22,8 +22,13 @@ public class Exer1Controller {
 //	@GetMapping
 	@RequestMapping("exer1Form")
 	// Model사용시 mav인스턴스를 통해 model의 attribute로 정보를 전달하고 view를 return 값으로 이동가능
-	String exer1(Model mm) {
+	String exer1(Model mm
+//			@ModelAttribute(value="sl", defaultValue="20")int sl,
+//			@ModelAttribute("tl")int tl,
+//			@ModelAttribute("b")int b
+			) {
 		// 학생 수(Student Length),과목 수(Title Length),반 수(Ban)
+//		if(sl)
 		int sl=20, tl=3, b=4;
 		// 배열이 아닌 리스트(크기가 고정되지 않은 경우 더 적절)로 해보자
 		// 학생 수만큼 반을 랜덤으로 배정해서 준비
@@ -33,9 +38,12 @@ public class Exer1Controller {
 		// html에서 시퀀스에 넣어주기 위해 전달
 		mm.addAttribute("sl", sl);
 		mm.addAttribute("tl", tl);
+		// 반 정보
+		mm.addAttribute("b", b);
 		// 랜덤숫자 전달
         mm.addAttribute("rban", rban);
         mm.addAttribute("rjum", rjum);
+        System.out.println(sl +", "+ tl +", "+ b);
 		return "exer/exer1Form";
 	}
 	
@@ -58,6 +66,9 @@ public class Exer1Controller {
 	String exer1Reg(Model mm, @ModelAttribute Exer1Data ed) {
 		// 등수 채워주기
 		ed.ranks(ed);
+		// 셀렉트 옵션으로 돌리기 위해
+		String[] sortList = "입력,반,이름,성적".split(",");
+		// 정렬하기
 		if("반".equals(ed.getSort())) {
 		    if(ed.getStuds() != null) {		    	
 				Collections.sort(ed.getStuds(), new Exer1Data.CompareBan());
@@ -73,6 +84,7 @@ public class Exer1Controller {
 		}
 //	    System.out.println(ed);
 	    mm.addAttribute("exer1Data", ed);
+	    mm.addAttribute("sortList", sortList);
 	    return "exer/exer1Reg";
 	}
 

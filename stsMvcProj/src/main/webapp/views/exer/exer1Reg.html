@@ -30,10 +30,8 @@
 		<tr>
 			<td colspan="4">정렬기준:
 				<select name="sort" id="sortSelect" onchange="sortChange()">
-					<option selected>입력</option>
-					<option>반</option>
-					<option>이름</option>
-					<option>성적</option>
+					<!--th:text로 해야지 됨-->
+					<option th:each="s : ${sortList}" th:text="${s}" th:selected="${s}==${exer1Data.sort}" />
 				</select>
 			</td>
 		</tr>

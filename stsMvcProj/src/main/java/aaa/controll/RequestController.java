@@ -28,7 +28,7 @@ public class RequestController {
 		mav.addObject("pname", "정우성");
 		mav.addObject("jum", new int[] {78,89,34});
 		mav.addObject("now", new Date());
-		mav.addObject("per", new Person("장동건", "남", true));
+//		mav.addObject("per", new Person("장동건", "남", true));
 		return mav;
 	}
 	
@@ -51,7 +51,7 @@ public class RequestController {
 		request.setAttribute("pname", "정좌성");
 		request.setAttribute("jum", new int[] {11,22,78,89,34});
 		request.setAttribute("now", new Date());
-		request.setAttribute("per", new Person("장서건", "여", true));
+//		request.setAttribute("per", new Person("장서건", "여", true));
 		return "req/attr";
 	}
 	
@@ -62,7 +62,7 @@ public class RequestController {
 		mm.addAttribute("pname", "정북성");
 		mm.addAttribute("jum", new int[] {11,22});
 		mm.addAttribute("now", new Date());
-		mm.addAttribute("per", new Person("북두신건", "남", false));
+//		mm.addAttribute("per", new Person("북두신건", "남", false));
 		return "req/attr";
 	}
 
@@ -76,7 +76,7 @@ public class RequestController {
 			@ModelAttribute("pname") String nick,	// 링크전부터 다시 하니 안됨	// 나는 왜 pname이 잘 받아지지? 선생님과 다른 학생들은 안됨
 			@ModelAttribute("jum") int [] jum) {
 		mm.addAttribute("now", new Date());
-		mm.addAttribute("per", new Person("북두신건", "남", false));
+//		mm.addAttribute("per", new Person("북두신건", "남", false));
 		return "req/attr";
 	}
 	

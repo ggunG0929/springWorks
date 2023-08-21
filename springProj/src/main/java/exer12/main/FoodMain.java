@@ -18,7 +18,7 @@ public class FoodMain {
 //		f.food("불고기덮밥", 2);
 //		f.food("김치찌개", "공기밥", 2);
 		
-		o.order((f.food("불고기덮밥", 1), f.food("김치찌개", "공기밥", 2)));
+//		o.order((f.food("불고기덮밥", 1), f.food("김치찌개", "공기밥", 2)));
 		System.out.println("---------------");
 
 		context.close();

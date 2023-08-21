@@ -18,8 +18,37 @@
 <a href="request/joinForm">joinForm</a>
 <!--get 방식으로 갈 것이므로 자동으로 orderForm으로 감-->
 <a href="request/order">order</a>
+<br>
+<a href="request/param1?id=aaa&age=45&marriage=true">param1</a>
+<a href="request/param2?id=bbb&age=34&marriage=true">param2</a>
+<a href="request/param1?id=ccc">param1</a>
+<!--null이 떠서 오류남-->
+<a href="request/param2?id=ddd">param2</a>
+<!--이름이 달라서 오류남-->
+<a href="request/param3?id=eee&age=27&marriage=true">param3</a>
+<a href="request/param3?id=fff&aaa=23&mrg=true">param3</a>
+<!--param 값이 없으면 null이 떠서 오류남-->
+<a href="request/param3?id=ggg">param3</a>
+<a href="request/param4?id=hhh&aaa=28&mrg=true">param4</a>
+<a href="request/param4?id=iii">param4</a>
+<a href="request/coffee">coffeeOrder</a>
+<a href="request/exam">exam(과제)</a>
+<h2>redirect</h2>
+<a href="red/from1">from1</a>
+<!--당연히 정보 안 넘어감-->
+<a href="red/from1?id=aaa&age=44&marriage=true">from1</a>
+<!--정보 안 넘어감-->
+<a href="red/from2">from2</a>
+<a href="red/from3">from3</a>
+<a href="red/from4?id=ddd&age=25&marriage=false">from4</a>
+<a href="red/from5?id=eee&age=27&marriage=false">from5</a>
+<a href="red/from6?id=fff&age=31&marriage=true">from6</a>
+<h2>file</h2>
+<a href="file/upload">upload</a>
+
 
 <h2>exer</h2>
 <a href="exer/exer1Form">exer1</a>
+<a href="exer/exer2param?name=아프리카노">exer2param</a>
 </body>
 </html>

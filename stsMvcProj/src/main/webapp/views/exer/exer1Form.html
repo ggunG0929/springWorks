@@ -4,11 +4,34 @@
 <head>
 <meta charset="UTF-8">
 <title>exer1</title>
+<script type="text/javascript">
+	function frameChange(){
+		var strb = document.getElementById("ban").value;
+		var strsl = document.getElementById("student").value;
+		var strtl = document.getElementById("title").value;
+		var b = parseInt(strb);
+		var sl = parseInt(strsl);
+		var tl = parseInt(strtl);
+		// s값이 문자인 경우 or s값이 0 이하인 경우
+		if(isNaN(b) || b<=0 || isNaN(sl) || sl<=0 || isNaN(tl) || tl<=0) {
+			alert("1 이상의 숫자를 적어주세요.");
+		}else {
+			exer1.action="?"
+			exer1.submit();	
+		}
+	}
+</script>
 </head>
 <body>
 <h1>exer1</h1>
 <form action="exer1Reg" method="post" name="exer1">
 <table>
+    <tr>
+        <td><input type="text" id="ban" th:name="${b}" th:placeholder="${b}" style="width: 20px" />개 반</td>
+        <td>학생 <input type="text" id="student" th:name="${sl}" th:placeholder="${sl}" style="width: 20px" />명</td>
+        <td>과목 <input type="text" id="title" th:name="${tl}" th:placeholder="${tl}" style="width: 20px" />개</td>
+        <td><input type="button" onclick="frameChange()" value="확인"></td>
+    </tr>
     <tr>
         <td>반</td>
         <td>이름</td>
