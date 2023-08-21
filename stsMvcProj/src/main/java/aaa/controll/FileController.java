@@ -74,9 +74,11 @@ public class FileController {
 	
 	@RequestMapping(value="upload3")
 	String fileReg3(UploadData ud) {
-		// ud: UploadData(id=aaa, age=24, ff1=org.springframework.web.multipart.support.
+		// ud: UploadData(id=aaa, age=24, 
+		// ff1=org.springframework.web.multipart.support.
 		// StandardMultipartHttpServletRequest$StandardMultipartFile@7952b366, 
-		// ff2=org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@26c43a0c)
+		// ff2=org.springframework.web.multipart.support.
+		// StandardMultipartHttpServletRequest$StandardMultipartFile@26c43a0c)
 		System.out.println("ud: "+ud);
 
 		// OriginalFilename(): 10.jpg
@@ -90,35 +92,79 @@ public class FileController {
 		// isEmpty(): false
 		System.out.println("isEmpty(): "+ud.getFf1().isEmpty());
 		
-		if(!ud.getFf1().isEmpty()) {
-			System.out.println("파일이 존재합니다.");
-			if((ud.getFf1().getContentType()).substring(0, 5).equals("image")) {
+		fileSave(ud.getFf1());
+
+		System.out.println("OriginalFilename(): "+ud.getFf2().getOriginalFilename());
+		System.out.println("getName(): "+ud.getFf2().getName());
+		System.out.println("getContentType(): "+ud.getFf2().getContentType());
+		System.out.println("getSize(): "+ud.getFf2().getSize());
+		System.out.println("isEmpty(): "+ud.getFf2().isEmpty());
+		
+		// 파일이 비워져있지 않다면
+		if(!ud.getFf2().isEmpty()) {
+			System.out.println("파일이 존재합니다. 파일 종류를 확인합니다.");
+			// 컨텐츠타입이 image로 시작한다면
+			if((ud.getFf2().getContentType()).substring(0, 5).equals("image")) {
 				System.out.println("이미지 파일입니다. 파일 저장을 시도합니다.");
-				fileSave(ud.getFf1());
-				System.out.println("파일을 저장했습니다.");
+				// 파일저장메서드 호출
+				fileSave2(ud.getFf2());
+			// 컨텐츠타입이 image로 시작하지 않는다면
 			}else {
 				System.out.println("이미지 파일이 아닙니다. 파일을 저장하지 않습니다.");
 			}
+		// 파일이 비워져 있다면
 		}else {
 			System.out.println("파일이 존재하지 않습니다. 파일을 저장하지 않습니다.");
 		}
+		
 		return "file/uploadReg3";
 	}
 	
+
 	void fileSave(MultipartFile mf) {
-		String path = "C:\\green_project\\springWorks\\stsMvcProj\\src\\main\\webapp\\up";
+		// 학원컴
+//		String path = "C:\\green_project\\springWorks\\stsMvcProj\\src\\main\\webapp\\up";
+		// 놋북
+		String path = "C:\\Users\\laptop\\Desktop\\coding\\springWorks\\stsMvcProj\\src\\main\\webapp\\up";
+		
+		File ff = new File(path+"\\"+mf.getOriginalFilename());
+
+		try {
+			FileOutputStream fos = new FileOutputStream(ff);	// surround with try catch
+			fos.write(mf.getBytes());
+			fos.close();
+		} catch (Exception e) {	// exception 으로
+			e.printStackTrace();
+		}
+	}
+	
+	
+	void fileSave2(MultipartFile mf) {
+		// 저장될 경로
+		// 학원컴
+//		String path = "C:\\green_project\\springWorks\\stsMvcProj\\src\\main\\webapp\\up";
+		// 놋북
+		String path = "C:\\Users\\laptop\\Desktop\\coding\\springWorks\\stsMvcProj\\src\\main\\webapp\\up";
+		
+		// ff = 저장경로에 파일이름 부여
 		File ff = new File(path+"\\"+mf.getOriginalFilename());
 		
-		if(ff.exists()) {
+		// 저장경로에 중복된 파일이름이 존재하지 않을 때까지 파일이름을 가공
+		int cnt=1;
+		while(ff.exists()) {
 			System.out.println("같은 이름의 파일이 존재합니다.");
-			String []fm = mf.getOriginalFilename().split("[.]");
-			String nn = String.join("_1.", fm);
-			ff = new File(path+"\\"+nn);
+			// 파일이름에서 .을 기준으로 앞뒤를 배열에 저장
+			String[] fn = mf.getOriginalFilename().split("[.]");
+			// 배열사이에 _숫자.를 넣어 다시 조합
+			String newName = String.join("_"+cnt+".", fn);
+			System.out.println("새로운 파일이름을 부여합니다. newName: "+newName);
+			// 저장경로에 새로운 파일이름 부여
+			ff = new File(path+"\\"+newName);
+			cnt++;
 		}
 		try {
-			
+			System.out.println("파일을 저장합니다.");
 			FileOutputStream fos = new FileOutputStream(ff);	// surround with try catch
-			System.out.println("파일을 올립니다.");
 			fos.write(mf.getBytes());
 			fos.close();
 		} catch (Exception e) {	// exception 으로
