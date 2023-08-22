@@ -12,12 +12,19 @@ public class Person {
 	String pname, gender;
 	boolean mil;
 	
-	String id;
+	String id, pw;
 	int age;
 	boolean marriage;
 
 	public Person() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	public Person(String id, String pname, String pw) {
+		super();
+		this.id = id;
+		this.pname = pname;
+		this.pw = pw;
 	}
 	
 //	// lombok.data 사용시 생략가능

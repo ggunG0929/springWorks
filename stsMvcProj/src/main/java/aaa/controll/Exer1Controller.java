@@ -83,8 +83,8 @@ public class Exer1Controller {
 			}
 		}
 //	    System.out.println(ed);
+		mm.addAttribute("sortList", sortList);
 	    mm.addAttribute("exer1Data", ed);
-	    mm.addAttribute("sortList", sortList);
 	    return "exer/exer1Reg";
 	}
 
