@@ -6,12 +6,21 @@ import lombok.Data;
 
 @Data
 public class UploadData {
-
-	String id;
+//// 내가 작성한 것
+//	String id;
+//	int age;
+//	MultipartFile ff1, ff2;
+//	
+//	public String getFf1Name() {
+//		return ff1.getOriginalFilename();
+//	}
+	
+	String id,ff1Name, msg, ff2Name;
 	int age;
 	MultipartFile ff1, ff2;
 	
 	public String getFf1Name() {
 		return ff1.getOriginalFilename();
 	}
+	
 }

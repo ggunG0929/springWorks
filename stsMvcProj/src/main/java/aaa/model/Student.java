@@ -13,6 +13,17 @@ public class Student implements Comparable<Student>{
 	double tot, avg;
 	int rank;
 	
+	public Student() {}
+
+	public Student(String name, double... jum) {
+		super();
+		this.name = name;
+		this.jum = new ArrayList<>();
+		for (Double i : jum) {
+			this.jum.add(i);
+		}
+	}
+	
 	public double getTot() {
 		tot = 0;
 		for (Double i : jum) {
@@ -32,7 +43,6 @@ public class Student implements Comparable<Student>{
 			if(avg < you.avg) {
 				rank++;
 			}
-			
 		}
 	}
 

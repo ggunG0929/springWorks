@@ -231,7 +231,7 @@ public class study_main {
 		
 //		String[] arr = new String[30]; 
 //		System.out.println(arr.length);
-		System.out.println("영단어를 입력해주세요");
+//		System.out.println("영단어를 입력해주세요");
 //		String [] ar = sc.next().split("");
 //		System.out.println(Arrays.toString(ar));
 //		System.out.println(ar.length);
@@ -253,13 +253,34 @@ public class study_main {
 //			}
 //		}
 //		System.out.println((char)max);
-		String str = sc.next();
-		String [] arr = str.split("");
-		String str2="";
-		for(int i=0; i<arr.length; i++) {
-			str2 += arr[arr.length-(i+1)];
-		}
-		System.out.println(str2);
+
+//		String str = sc.nextLine();
+//		System.out.println(str);
+//		str = str.replaceAll(" ", ",");
+//		String [] arr = str.split("");
+//		String str2="";
+//		for(int i=0; i<arr.length; i++) {
+//			str2 += arr[arr.length-(i+1)];
+//		}
+//		String str3 = str2.replaceAll(",", " ");
+//		System.out.println(str3);
+		
+//		String str = sc.nextLine();
+//		str = str.replaceAll(" ", ",");
+//		String [] arr = str.split("");
+//		String str2="";
+//		for(int i=str.length()-1; i>0; i--) {
+//			str2 += arr[i];
+//		}
+//		String str3 = str2.replaceAll(",", " ");
+//		System.out.println(str3);
+		
+//		String str = "w.whw.google.chom";
+//		String str2 = str.substring(str.indexOf("google"), str.indexOf("google")+6).toUpperCase();
+//		System.out.println(str2);
+		
 	}
+	
+	
 
 }
