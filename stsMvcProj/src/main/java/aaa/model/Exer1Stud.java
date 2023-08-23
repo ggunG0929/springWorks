@@ -11,6 +11,14 @@ public class Exer1Stud {
 	List<Integer> jumsu;
 	int tot, avg, rank=1;
 	
+	// exer4에서 사용하기 위해 추가
+	public Exer1Stud(String ban, String name, List<Integer> jumsu) {
+		super();
+		this.ban = ban;
+		this.name = name;
+		this.jumsu = jumsu;
+	}
+	
 	public int getTot() {
 		int tot = 0;
 		for (int score : jumsu) {

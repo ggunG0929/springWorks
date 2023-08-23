@@ -10,6 +10,7 @@ public class SeasonMain {
 	HashMap<String, String[]>data;
 	
 	public SeasonMain() {
+		
 		data = new HashMap<>();
 		
 		data.put("spring","sp1.jpg,sp2.jpg,sp3.jpg".split(","));

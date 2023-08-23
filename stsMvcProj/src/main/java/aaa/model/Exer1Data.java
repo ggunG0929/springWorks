@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+import aaa.model.Exer1Data.CompareName;
+import aaa.model.Exer1Data.CompareRank;
 import lombok.Data;
 
 @Data
@@ -81,4 +83,24 @@ public class Exer1Data {
 			return 0;
 		}
 	}
+
+	// exer1에서는 컨트롤러에서 진행했던 메서드를 exer4에서도 쓰기 위해 옮겨놓음
+    public void sort() {
+        ArrayList<Exer1Stud> studs = this.getStuds();
+        if(studs != null) {
+            Comparator<Exer1Stud> comparator;
+            if ("반".equals(this.getSort())) {
+                comparator = new CompareBan();
+            } else if ("이름".equals(this.getSort())) {
+                	comparator = new CompareName();
+            } else if ("성적".equals(this.getSort())) {
+                comparator = new CompareRank();
+            } else {
+                // 정렬할 필요 없이 그대로 반환
+                return;
+            }
+            studs.sort(comparator);
+        }
+
+    }
 }
