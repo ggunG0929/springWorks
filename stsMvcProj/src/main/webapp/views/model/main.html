@@ -15,21 +15,21 @@
 		<td width="500px">
 			<table width="100%">
 				<tr align="center">
-					<td th:each="md : ${hNav}">
-						<a th:href="|?sn=${md.url}|" th:text="${md.txt}" />
-					</td>
+					<!-- 헤더 메뉴바-->
+					<th: block th:replace="model/hnav" />
 				</tr>
 			</table>
 		</td>
 	</tr>
 	<tr>
-		<td>
-			<img th:each="mc:${mainCt}" th:src="|/sn/${mc}|" alt="" />
+		<td><!-- 중심데이터 -->
+			<th: block th:replace="model/main2" />
 		</td>
 	</tr>
-	<tr>
-		<td>[[${fTxt}]]</td>
+	<tr><!-- 푸터 -->
+		<td><th: block th:replace="model/footer" /></td>
 	</tr>	
 </table>
+
 </body>
 </html>

@@ -38,4 +38,12 @@ public class ThymeleafController {
 		
 		return "thyme/control";
 	}
+
+	@RequestMapping("lay")
+	String lay(Model mm) {
+		mm.addAttribute("pid", "aaa");
+		mm.addAttribute("arr", new int[] {77,66,33,99});
+		mm.addAttribute("age", 35);
+		return "thyme/lalala";
+	}
 }

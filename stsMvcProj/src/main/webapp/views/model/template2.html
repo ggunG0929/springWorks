@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="model/main.html">
 <head>
 <meta charset="UTF-8">
 <title>model/season</title>
@@ -8,13 +10,14 @@
 </style>
 </head>
 <body>
-<h1>model/season</h1>
-
+<h1>model/layout</h1>
+<!--
 <table border="">
 	<tr>
 		<td width="500px">
 			<table width="100%">
 				<tr align="center">
+					 헤더 메뉴바
 					<td th:each="md : ${hNav}">
 						<a th:href="|?sn=${md.url}|" th:text="${md.txt}" />
 					</td>
@@ -23,13 +26,13 @@
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td> 중심데이터 
 			<img th:each="mc:${mainCt}" th:src="|/sn/${mc}|" alt="" />
 		</td>
 	</tr>
-	<tr>
+	<tr> 푸터 
 		<td>[[${fTxt}]]</td>
 	</tr>	
-</table>
+</table>-->
 </body>
 </html>
