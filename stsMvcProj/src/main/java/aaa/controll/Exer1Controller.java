@@ -16,11 +16,11 @@ import aaa.model.Exer1Data;
 
 @Controller
 //@RequestMapping("exer/exer1")
-@RequestMapping("exer")
+@RequestMapping("exer1")
 public class Exer1Controller {
 	
 //	@GetMapping
-	@RequestMapping("exer1Form")
+	@RequestMapping("form")
 	// Model사용시 mav인스턴스를 통해 model의 attribute로 정보를 전달하고 view를 return 값으로 이동가능
 	String exer1(Model mm
 //			@ModelAttribute(value="sl", defaultValue="20")int sl,
@@ -62,7 +62,7 @@ public class Exer1Controller {
     }
 	
 //	@PostMapping
-	@RequestMapping("exer1Reg")
+	@RequestMapping("reg")
 	String exer1Reg(Model mm, @ModelAttribute Exer1Data ed) {
 		// 등수 채워주기
 		ed.ranks(ed);

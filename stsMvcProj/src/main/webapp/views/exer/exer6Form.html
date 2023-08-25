@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Exer6Form</title>
+</head>
+<body>
+<h1>Exer6Form</h1>
+<style>
+	td>div{
+		background-color: #ff0;
+		color: red;
+	}
+	
+</style>
+<form action="" method="post" th:object="${exer6Data}">
+	<table border="">
+		<tr>
+			<td>이름</td>
+			<td>
+				<input type="text" th:field="*{name}">
+				<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" />
+			</td>
+		</tr>
+		<tr>
+			<td>국어</td>
+			<td>
+				<input type="text" th:field="*{kor}">
+				<div th:if="${#fields.hasErrors('kor')}" th:errors="*{kor}" />
+			</td>
+		</tr>
+		<tr>
+			<td>영어</td>
+			<td>
+				<input type="text" th:field="*{eng}">
+				<div th:if="${#fields.hasErrors('eng')}" th:errors="*{eng}" />
+			</td>
+		</tr>
+		<tr>
+			<td>수학</td>
+			<td>
+				<input type="text" th:field="*{mat}">
+				<div th:if="${#fields.hasErrors('mat')}" th:errors="*{mat}" />
+			</td>
+		</tr>
+		<tr>
+			<td>음악</td>
+			<td>
+				<input type="number" th:field="*{mus}">
+				<div th:if="${#fields.hasErrors('mus')}" th:errors="*{mus}" />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="가입">
+			</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

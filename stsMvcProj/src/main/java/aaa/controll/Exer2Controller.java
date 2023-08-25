@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import aaa.model.Exer2Coffee;
 
 @Controller
-@RequestMapping("exer")
+@RequestMapping("exer2")
 public class Exer2Controller {
 	/*
 	 * 커피 주문을 구현하세요
@@ -23,7 +23,7 @@ public class Exer2Controller {
 	 * 결과
 	 * 커피이름, 잔수, 금액
 	 * */
-	@RequestMapping("exer2param")
+	@RequestMapping("param")
 	String exer2(Model mm, @RequestParam(value="name", required=true)String name,
 			@RequestParam(value="jan", required=false, defaultValue = "1")int jan) {
 		Exer2Coffee coffee = new Exer2Coffee(name);

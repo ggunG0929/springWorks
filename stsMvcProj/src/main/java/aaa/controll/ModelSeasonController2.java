@@ -64,11 +64,11 @@ public class ModelSeasonController2 {
 //		return "model/template2";
 //	}
 	
-	@ModelAttribute("season")
-	Object season() {
-		Object res = provider.getContext().getBean("sn");
-		System.out.println(res);
-		return "res";
-	}
+//	@ModelAttribute("season")
+//	Object season() {
+//		Object res = provider.getContext().getBean("sn");
+//		System.out.println(res);
+//		return "res";
+//	}
 	
 }

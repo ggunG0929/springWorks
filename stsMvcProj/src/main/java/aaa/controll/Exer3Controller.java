@@ -17,10 +17,10 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
-@RequestMapping("exer")
+@RequestMapping("exer3")
 public class Exer3Controller {
 
-	@RequestMapping("exer3cookie")
+	@RequestMapping("cookie")
 	ModelAndView loginForm(
 			Model mm,
 			// defaultValue를 "null"로 설정해도 가능
@@ -33,7 +33,7 @@ public class Exer3Controller {
 	}	
 	
 	@ResponseBody
-	@RequestMapping("exer3Reg")
+	@RequestMapping("reg")
 	String loginReg(Model mm,
 			HttpServletResponse response,
 			@RequestParam String pid,
@@ -58,11 +58,11 @@ public class Exer3Controller {
 		ml.add(m4);
 		ml.add(m5);
 		
-		String msg = "<script>alert('로그인 실패');location.href='exer3cookie';</script>";
+		String msg = "<script>alert('로그인 실패');location.href='cookie';</script>";
 		for(Exer3Member m : ml) {
 			if(pid.equals(m.getDbid())&&pw.equals(m.getDbpw())) {
 				String dbPname = m.getDbPname();
-				msg = "<script>alert('로그인 성공');location.href='exer3cookie';</script>";
+				msg = "<script>alert('로그인 성공');location.href='cookie';</script>";
 				System.out.println("쿠키생성");
 				response.addCookie(new Cookie("pid", pid));
 				response.addCookie(new Cookie("pname", dbPname));
@@ -72,7 +72,7 @@ public class Exer3Controller {
 	}
 
 	@ResponseBody
-	@RequestMapping("exer3logout")
+	@RequestMapping("logout")
 	String logout(HttpServletResponse response,
 			@CookieValue(value="pid", defaultValue = "없음")String pid,
 			@CookieValue(value="pname", defaultValue = "없음")String pname) {
@@ -84,7 +84,7 @@ public class Exer3Controller {
 		coo = new Cookie("pname","");
 		coo.setMaxAge(0);
 		response.addCookie(coo);
-		String msg = "<script>alert('로그아웃');location.href='exer3cookie';</script>";
+		String msg = "<script>alert('로그아웃');location.href='cookie';</script>";
 		return msg;
 	}
 	

@@ -13,6 +13,8 @@ public class Person {
 	String id, pw;
 	int age;
 	boolean marriage;
+	// form 하면서 추가
+	String pid;
 
 	public Person() {
 		// TODO Auto-generated constructor stub

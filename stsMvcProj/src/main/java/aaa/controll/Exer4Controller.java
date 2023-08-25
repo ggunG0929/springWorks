@@ -15,7 +15,7 @@ import aaa.model.MenuData;
 import jakarta.annotation.Resource;
 
 @Controller
-@RequestMapping("/exer")
+@RequestMapping("/exer4")
 public class Exer4Controller {
 	
 	@Resource
@@ -51,7 +51,7 @@ public class Exer4Controller {
 		return "그린 풀스택 322호";
 	}
 	
-	@RequestMapping("/exer4ban")
+	@RequestMapping("/ban")
 	String template() {
 		return "exer/exer4ban";
 	}

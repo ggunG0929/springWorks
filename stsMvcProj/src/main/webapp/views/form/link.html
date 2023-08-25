@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="">
+<head>
+<meta charset="UTF-8">
+<title>form/link</title>
+</head>
+<body>
+<h1>form/link</h1>
+<!--form/aaa form/bbb-->
+<a href="aaa">aaa</a>
+<a th:href="@{bbb}">bbb</a>
+<!-- 그냥 ccc/ ddd로 감 -->
+<a href="/ccc">ccc</a>
+<a th:href="@{/ddd}">ddd</a>
+<a th:href="@{${cate1}}">[[${cate1}]]</a>
+<a th:href="${cate2}">[[${cate2}]]</a>
+<!--표현식 오류-->
+<!--<a th:href="ggg(id=zx,age=14)">ggg</a>-->
+<a th:href="@{hhh(id=zx,age=14)}">hhh</a>
+<!--작업이 조금 더 편해진다 아래 2개-->
+<a th:href="@{${cate1}(id=${pid},age=${age},no=${no})}">[[${cate1}]]</a>
+<a th:href="@{|${cate1}/${cate2}|(id=${pid},age=${age},no=${no})}">[[|${cate1}/${cate2}|]]</a>
+<!--평상시-->
+<a th:href="|${cate1}?id=${pid}&age=${age}&no=${no}|">[[${cate1}]]</a>
+<a th:href="|${cate1}/${cate2}?id=${pid}&age=${age}&no=${no}|">[[|${cate1}/${cate2}|]]</a>
+
+</body>
+</html>
