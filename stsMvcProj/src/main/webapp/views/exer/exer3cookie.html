@@ -6,13 +6,13 @@
 </head>
 <body>
 <th:block th:unless="${pid}==('없음')" >
-	<a href="exer3logout">
+	<a href="logout">
 		[[${pid}]] 로그아웃
 	</a>
 	<br>[[${pname}]]님 안녕하세요!
 </th:block>
 <th:block th:if="${pid}==('없음')" >
-<form action="exer3Reg" method="post">
+<form action="reg" method="post">
 	id<input type="text" name="pid" /><br>
 	pw<input type="text" name="pw" /><br>
 	<input type="submit" value="로그인" />

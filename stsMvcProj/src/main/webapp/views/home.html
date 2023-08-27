@@ -23,26 +23,25 @@
 <a href="request/param2?id=bbb&age=34&marriage=true">param2</a>
 <a href="request/param1?id=ccc">param1</a>
 <!--null이 떠서 오류남-->
-<a href="request/param2?id=ddd">param2</a>
+<a href="request/param2?id=ddd">param2(오류)</a>
 <!--이름이 달라서 오류남-->
-<a href="request/param3?id=eee&age=27&marriage=true">param3</a>
+<a href="request/param3?id=eee&age=27&marriage=true">param3(오류)</a>
 <a href="request/param3?id=fff&aaa=23&mrg=true">param3</a>
 <!--param 값이 없으면 null이 떠서 오류남-->
-<a href="request/param3?id=ggg">param3</a>
+<a href="request/param3?id=ggg">param3(오류)</a>
 <a href="request/param4?id=hhh&aaa=28&mrg=true">param4</a>
 <a href="request/param4?id=iii">param4</a>
 <a href="request/coffee">coffeeOrder</a>
 <a href="request/exam">exam(과제)</a>
-<h2>redirect</h2>
+
+<h2>redirect(to로)</h2>
 <a href="red/from1">from1</a>
-<!--당연히 정보 안 넘어감-->
 <a href="red/from1?id=aaa&age=44&marriage=true">from1</a>
-<!--정보 안 넘어감-->
-<a href="red/from2">from2</a>
-<a href="red/from3">from3</a>
-<a href="red/from4?id=ddd&age=25&marriage=false">from4</a>
-<a href="red/from5?id=eee&age=27&marriage=false">from5</a>
-<a href="red/from6?id=fff&age=31&marriage=true">from6</a>
+<a href="red/from2">from2(모델로 전달-x)</a>
+<a href="red/from3">from3(mav로 전달 -o)</a>
+<a href="red/from4?id=ddd&age=25&marriage=false">from4(param전달-출력x)</a>
+<a href="red/from5?id=eee&age=27&marriage=false">from5(정보o)</a>
+<a href="red/from6?id=fff&age=31&marriage=true">from6(정보o)</a>
 
 <h2>file</h2>
 <a href="file/upload">upload</a>
@@ -67,30 +66,28 @@
 <a href="session/loginMain">로그인메인</a>
 
 <h2>model</h2>
-<a href="model/mmm1">mmm1</a>
-<a href="model/mmm2">mmm2</a>
+<a href="model/mmm1">mmm1(오류:no값이없어서)</a>
+<a href="model/mmm2">mmm2(오류:no값이없어서)</a>
 <a href="model/mmm1?no=1">mmm1-1</a>
 <a href="model/mmm1?no=2">mmm1-2</a>
 <a href="model/mmm2?no=1">mmm2-1</a>
 <a href="model/mmm2?no=2">mmm2-2</a>
-<a href="model/season">season</a>
+<a href="model/season?sn=spring">season</a>
 
 <h2>path</h2>
-<a href="path/aaa">aaa</a>
+<!--cate가 중간에 없어서 기본페이지로 빠짐-->
+<a href="path/aaa">aaa(404오류)</a>
 <a href="path/tv/aaa">tv/aaa</a>
-<!--aaa가 아니라서 안됨-->
 <a href="path/phone/bbb">phone/bbb</a>
-<a href="path/notice/list/2">notice/list/2</a>
+<!--{ser}!=list-->
+<a href="path/notice/list/2">notice/list/2(오류)</a>
 <a href="path/notice/detail/4">notice/detail/4</a>
 <a href="path/notice/modify/5">notice/modify/5</a>
 
 <h2>provider</h2>
 <a href="provider/list">list</a>
-<!--cam: Camera(name=전방카메라, pixel=2080)
-bat: Battery(name=로케트밧데리, size=500)-->
+<!--bat: Battery(name=로케트밧데리, size=500)-->
 <a href="provider/bat1">bat1</a>
-<!--cam: Camera(name=전방카메라, pixel=2080)
-bat: Battery(name=사랑의밧데리, size=300)-->
 
 <h2>form/form</h2>
 <a href="form/form">form</a>
@@ -108,10 +105,8 @@ bat: Battery(name=사랑의밧데리, size=300)-->
 <a href="exer1/form">exer1</a>
 <a href="exer2/param?name=아프리카노">exer2param</a>
 <a href="exer3/cookie">exer3cookie</a>
-<a href="exer/exer3reg">exer3reg</a>
-<a href="exer/exer4ban">exer4ban</a>
-<a href="model2/season">season2</a>
-<a href="model2/season/spring">season2/spring</a>
+<a href="exer4/ban">exer4ban</a>
+<a href="model2/season?sn=spring">season2(프로바이더연동해야함)</a>
 <a href="exer5/form">exer5form</a>
 <a href="exer6/valid">exer6validation</a>
 </body>

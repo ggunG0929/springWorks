@@ -16,10 +16,14 @@ import aaa.service.MyProvider;
 import jakarta.annotation.Resource;
 
 @Controller
-@RequestMapping("/model2")
+@RequestMapping("model2")
 public class ModelSeasonController2 {
 	@Resource
 	SeasonMain sm;
+
+	// 잘 모르겄는디
+	@Resource
+	MyProvider provider;
 
 	@ModelAttribute("hNav")
 	Object headerNav() {
@@ -41,22 +45,17 @@ public class ModelSeasonController2 {
 		return "바닥글";
 	}
 	
-//	@RequestMapping("/season")
-//	String template() {
-//		return "model/template2";
-//	}
-	
-	@RequestMapping("/season/{sn}")
-	String template(Model mm, @PathVariable String sn) {
-		mm.addAttribute(sm.getPicture(sn));
+	@RequestMapping("season")
+	String template() {
 		return "model/template2";
 	}
 	
-	
-	// 잘 모르겄는디
-	@Resource
-	MyProvider provider;
-	
+//	@RequestMapping("season/{sn}")
+//	String template(Model mm, @PathVariable String sn) {
+//		mm.addAttribute(sm.getPicture(sn));
+//		return "model/template2";
+//	}
+
 //	@RequestMapping("{sn}")
 //	String mapping(@PathVariable String sn, Model mm) {
 //		mm.addAttribute("sn",Provider.getContext().getBean(sn));

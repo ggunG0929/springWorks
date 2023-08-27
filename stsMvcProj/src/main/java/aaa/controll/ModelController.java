@@ -18,6 +18,8 @@ public class ModelController {
 	// ppp1, ppp2로 불러봐야 안 불러와짐
 	// person으로 불러야 불러와짐
 	// ppp1과 ppp2 모두가 선택되어서 무엇이 불러와질 지 알 수가 없음 - 이런식으로 사용하지 말 것
+	
+	// person 클래스 수정되어서 오류남
 	Person ppp1() {
 		return new Person("yzc", "유진초이", "1111");
 	}

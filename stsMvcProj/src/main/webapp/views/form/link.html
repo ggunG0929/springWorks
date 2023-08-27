@@ -9,7 +9,7 @@
 <!--form/aaa form/bbb-->
 <a href="aaa">aaa</a>
 <a th:href="@{bbb}">bbb</a>
-<!-- 그냥 ccc/ ddd로 감 -->
+<!-- 그냥 ccc/ ddd로 감 - 지금은 오류나는디 -->
 <a href="/ccc">ccc</a>
 <a th:href="@{/ddd}">ddd</a>
 <a th:href="@{${cate1}}">[[${cate1}]]</a>
@@ -23,6 +23,5 @@
 <!--평상시-->
 <a th:href="|${cate1}?id=${pid}&age=${age}&no=${no}|">[[${cate1}]]</a>
 <a th:href="|${cate1}/${cate2}?id=${pid}&age=${age}&no=${no}|">[[|${cate1}/${cate2}|]]</a>
-
 </body>
 </html>

@@ -44,6 +44,7 @@ public class ThymeleafController {
 		mm.addAttribute("pid", "aaa");
 		mm.addAttribute("arr", new int[] {77,66,33,99});
 		mm.addAttribute("age", 35);
+		mm.addAttribute("headerUrl", "headdd");
 		return "thyme/lalala";
 	}
 }

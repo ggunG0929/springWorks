@@ -7,13 +7,9 @@
 <body>
 
 <h1>로그인 메인</h1>
-<!--<div th:if="${session.per!=null}"> 
-	[[${session.per.pname}]]님 안녕하세요-->
 <div th:unless="${sid=='없음'}">
 	[[${sname}]]님 안녕하세요? <a href="logout"><input type="button" value="로그아웃"></a>
 </div>
-
-<!--<div th:unless="${session.per!=null}"> -->
 <div th:if="${sid=='없음'}">
 <form action="loginReg">
 	<table>

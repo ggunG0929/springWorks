@@ -68,20 +68,22 @@ public class Exer1Controller {
 		ed.ranks(ed);
 		// 셀렉트 옵션으로 돌리기 위해
 		String[] sortList = "입력,반,이름,성적".split(",");
-		// 정렬하기
-		if("반".equals(ed.getSort())) {
-		    if(ed.getStuds() != null) {		    	
-				Collections.sort(ed.getStuds(), new Exer1Data.CompareBan());
-		    }
-		}else if("이름".equals(ed.getSort())) {
-			if(ed.getStuds() != null) {		    	
-				Collections.sort(ed.getStuds(), new Exer1Data.CompareName());
-			}
-		}else if("성적".equals(ed.getSort())) {
-			if(ed.getStuds() != null) {		    	
-				Collections.sort(ed.getStuds(), new Exer1Data.CompareRank());
-			}
-		}
+//		// 정렬하기 - exer4를 만들면서 data에서 정렬하도록 수정함
+//		if("반".equals(ed.getSort())) {
+//		    if(ed.getStuds() != null) {		    	
+//				Collections.sort(ed.getStuds(), new Exer1Data.CompareBan());
+//		    }
+//		}else if("이름".equals(ed.getSort())) {
+//			if(ed.getStuds() != null) {		    	
+//				Collections.sort(ed.getStuds(), new Exer1Data.CompareName());
+//			}
+//		}else if("성적".equals(ed.getSort())) {
+//			if(ed.getStuds() != null) {		    	
+//				Collections.sort(ed.getStuds(), new Exer1Data.CompareRank());
+//			}
+//		}
+		// 클래스를 수정했으므로 이렇게 호출하면 정렬 끝
+		ed.sort();
 //	    System.out.println(ed);
 		mm.addAttribute("sortList", sortList);
 	    mm.addAttribute("exer1Data", ed);

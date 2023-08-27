@@ -11,6 +11,12 @@ public class Exer1Stud {
 	List<Integer> jumsu;
 	int tot, avg, rank=1;
 	
+	// exer1에서 오류가 생겨서 기본 생성자 추가
+	public Exer1Stud() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 	// exer4에서 사용하기 위해 추가
 	public Exer1Stud(String ban, String name, List<Integer> jumsu) {
 		super();
@@ -40,4 +46,5 @@ public class Exer1Stud {
 			}
 		}
 	}
+
 }

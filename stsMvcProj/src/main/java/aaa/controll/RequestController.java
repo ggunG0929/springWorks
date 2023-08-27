@@ -31,7 +31,9 @@ public class RequestController {
 //		mav.addObject("per", new Person("장동건", "남", true));
 		return mav;
 	}
-	
+	//html에 있으면 오류나서 옮겨옴
+//	<!--getter가 없으면 에러-->
+//	<!--per: [[${per.pname}]], [[${per.mil}]]<br/>-->
 //	@RequestMapping("attr2")
 //	ModelAndView attr2() {
 ////		ModelAndView mav = new ModelAndView();	// 생략시 에러

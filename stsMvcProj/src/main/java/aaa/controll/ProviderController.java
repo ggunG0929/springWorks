@@ -25,7 +25,7 @@ public class ProviderController {
 		return res;
 	}
 
-	@RequestMapping("/list")
+	@RequestMapping("list")
 	String mapping1() {
 		return "provider/view";
 	}
@@ -36,19 +36,6 @@ public class ProviderController {
 		return "provider/view";
 	}
 	
-	@ModelAttribute("season")
-	Object season() {
-		Object res = provider.getContext().getBean("sn");
-		System.out.println(res);
-		return "res";
-	}
-	
-	@RequestMapping("{sn}")
-	String mapping(@PathVariable String sn, Model mm) {
-		mm.addAttribute("sn",provider.getContext().getBean(sn));
-		System.out.println("sn");
-		return "provider/view";
-	}
 	
 	
 	

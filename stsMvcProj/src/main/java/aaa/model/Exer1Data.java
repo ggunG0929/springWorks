@@ -101,6 +101,5 @@ public class Exer1Data {
             }
             studs.sort(comparator);
         }
-
     }
 }

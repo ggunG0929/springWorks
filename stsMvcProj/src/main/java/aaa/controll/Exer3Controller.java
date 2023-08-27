@@ -26,7 +26,7 @@ public class Exer3Controller {
 			// defaultValue를 "null"로 설정해도 가능
 			@CookieValue(value="pid", defaultValue = "없음")String pid,
 			@CookieValue(value="pname", defaultValue = "없음")String pname) {
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView("exer/exer3cookie");
 		mav.addObject("pname", pname);
 		mav.addObject("pid", pid);
 		return mav;
@@ -43,16 +43,14 @@ public class Exer3Controller {
 		System.out.println("pid: " + pid);
 		System.out.println("pw: " + pw);
 
-		System.out.println("멤버를 등록합니다");
-		Exer3Member m1 = new Exer3Member("aaa", "1111", "장동건");
+		List<Exer3Member> ml= new ArrayList<Exer3Member>();
+		ml.add(new Exer3Member("aaa", "1111", "장동건"));
 		Exer3Member m2 = new Exer3Member("bbb", "2222", "장서건");
 		Exer3Member m3 = new Exer3Member("ccc", "3333", "장남건");
 		Exer3Member m4 = new Exer3Member("ddd", "1111", "장동건");
 		Exer3Member m5 = new Exer3Member("eee", "3333", "북두신건");
 		
-		System.out.println("멤버리스트를 만듭니다");
-		List<Exer3Member> ml= new ArrayList<Exer3Member>();
-		ml.add(m1);
+//		ml.add(m1);
 		ml.add(m2);
 		ml.add(m3);
 		ml.add(m4);

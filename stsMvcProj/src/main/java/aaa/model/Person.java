@@ -21,7 +21,6 @@ public class Person {
 	}
 	
 	public Person(String id, String pname, String pw) {
-		super();
 		this.id = id;
 		this.pname = pname;
 		this.pw = pw;
