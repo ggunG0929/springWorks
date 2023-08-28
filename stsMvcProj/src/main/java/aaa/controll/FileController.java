@@ -182,9 +182,7 @@ public class FileController {
 	@RequestMapping(value="upload3")
 	String fileReg3(UploadData ud, HttpServletRequest request) {
 		
-		
 		System.out.println("ud:"+ud);
-		
 		System.out.println("OriginalFilename():"+ud.getFf1().getOriginalFilename());
 		System.out.println("getName():"+ud.getFf1().getName());
 		System.out.println("getContentType():"+ud.getFf1().getContentType());
@@ -197,12 +195,9 @@ public class FileController {
 		return "file/uploadReg3";
 	}
 	
-	
 	void fileSave(MultipartFile mf) {
 		String path = "C:\\green_project\\springWorks\\stsMvcProj\\src\\main\\webapp\\up";
-		
 		File ff = new File(path+"\\"+mf.getOriginalFilename());
-		
 		try {
 			FileOutputStream fos = new FileOutputStream(ff);
 			
@@ -220,7 +215,6 @@ public class FileController {
 		ud.setMsg(null);
 		//파일 업로드 유무 확인
 		if(ud.getFf2().isEmpty()) {
-			
 			ud.setMsg("파일이 비었어");
 			return;
 		}
@@ -235,7 +229,6 @@ public class FileController {
 		
 		//이미지인지 확인	// 어차피 확장자를 잘라놓았으니 그대로 활용하는 방법이 더 좋음
 		if(!Pattern.matches("[.](bmp|jpg|gif|png|jpeg)", ext.toLowerCase())) {	// import
-			
 			ud.setMsg("이미지 파일이 아님");
 			return;
 		}
@@ -244,7 +237,6 @@ public class FileController {
 		File ff = new File(path+"\\"+ud.getFf2Name());
 		int cnt = 1;
 		while(ff.exists()) {
-			 
 			ud.setFf2Name(fDomain+"_"+cnt+ext);
 			ff = new File(path+"\\"+ud.getFf2Name());
 			cnt++;
@@ -252,15 +244,11 @@ public class FileController {
 		
 		try {
 			FileOutputStream fos = new FileOutputStream(ff);
-			
 			fos.write(ud.getFf2().getBytes());
-			
 			fos.close();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 	
 	@RequestMapping("download")
@@ -268,13 +256,11 @@ public class FileController {
 			String ff, 
 			HttpServletRequest request,
 			HttpServletResponse response) {
-		
-		
+
 		String fName = request.getParameter("fName");
 		String path = request.getServletContext().getRealPath("up");
 		path = "C:\\green_project\\springWorks\\stsMvcProj\\src\\main\\webapp\\up";
-		
-		
+
 		try {
 			FileInputStream fis = new FileInputStream(path+"\\"+fName);
 			String encFName = URLEncoder.encode(fName,"utf-8");
@@ -289,7 +275,7 @@ public class FileController {
 			while(fis.available()>0) { //읽을 내용이 남아 있다면
 				int len = fis.read(buf);  //읽어서 -> buf 에 넣음
 											//len : 넣은 byte 길이
-				
+
 				sos.write(buf, 0, len); //보낸다 :  buf의 0부터 len 만큼
 				
 				//cnt ++;

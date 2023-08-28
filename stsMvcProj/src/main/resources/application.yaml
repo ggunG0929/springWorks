@@ -5,4 +5,13 @@ spring :
     prefix : views/
     suffix : .html
     cache : false
-  
+  datasource :
+    driver-class-name : com.mysql.cj.jdbc.Driver
+    url : jdbc:mysql://localhost:3306/db322
+    username : user322
+    password : 12345678
+    
+mybatis :
+  type-aliases-package : aaa.model
+  configuration :
+    map-underscore-to-camel-case : true 

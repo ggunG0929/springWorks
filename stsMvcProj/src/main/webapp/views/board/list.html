@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>board/list</title>
+</head>
+<body>
+<h1>board/list</h1>
+<table border="">
+	<tr>
+		<td>번호</td>
+		<td>제목</td>
+		<td>작성자</td>
+		<td>등록일</td>
+		<td>조회수</td>
+	</tr>
+	<tr th:each="dto, dtoStat : ${mainData}">
+		<td th:text="${dtoStat.index}" />
+		<td>
+			<a th:href="|detail/${dto.id}|" th:text="${dto.title}" />
+		</td>
+		<td th:text="${dto.pname}" />
+		<td th:text="${dto.regDate}"> />
+		<td th:text="${dto.cnt}" />
+	</tr>
+	<tr>
+		<td colspan="5" align="center">
+			페이지처리영역
+<!--		<th:block th:if(pd.pageStart>1)>
+			<a th:href="|?page=${pd.pageStart-1}|">[이전]</a>
+		</th:block>-->
+<!--		<% } for(int p=pd.pageStart; p<=pd.pageEnd; p++) {
+				if(pd.page == p) { %>
+					[<%=p %>]
+			<% }else{ %>
+					<a href="?page=<%=p %>"><%=p %></a>
+			<th:block th:if ${pd.pageEnd < pd.pageTotal}>
+				<a th:href="|?page=${pd.pageEnd+1}|">[다음]</a>
+			</th:block>-->
+		</td>
+	</tr>
+	<tr>
+		<td colspan="5" align="right">
+			<a href="insert">글쓰기</a>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

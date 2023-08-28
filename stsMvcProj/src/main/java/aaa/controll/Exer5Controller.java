@@ -23,7 +23,7 @@ public class Exer5Controller {
 	String postform(@Valid Exer5Data ed, BindingResult br) {
 		
 		if(br.hasErrors()) {
-			return "exer/exer5Form";
+			return "exer/exer5form";
 		}else {			
 			return "exer/exer5Reg";
 		}

@@ -63,7 +63,7 @@
 				<select th:field="*{bemail2}">
 					<option th:each="em : *{bemail2}" th:value="${em.value}" th:text="${em.key}" />
 				</select>
-				<div th:if="${#fields.hasErrors('price')}" th:errors="*{mus}" />
+				<div th:if="${#fields.hasErrors('bemail1')}" th:errors="*{bemail1}" />
 			</td>
 		</tr>
 		<tr>

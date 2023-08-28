@@ -19,8 +19,8 @@ public class Exer5Data {
 //	String gname1, gname2, gname3;
 	
 	// 상품가격 - 자동계산되도록
-	@Min(6000)
-	@Max(20000)
+	@Min(value=6000, message="최소가격은 6000원입니다.")
+	@Max(value=20000, message="최대가격은 20000원입니다.")
 	int price = 12000;
 	
 	// 구매자아이디 	- 회원정보와 연결
