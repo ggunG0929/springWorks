@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.databind.introspect.AccessorNamingStrategy.Provider;
 
@@ -35,10 +36,32 @@ public class ModelSeasonController2 {
 		return res;
 	}
 	
-	@ModelAttribute("mainCt")
-	Object mainContent(String sn) {
-		return sm.getPicture(sn);
-	}
+//	// 주소창에 ?sn=이 아니라 /로 연결되도록
+//	// myconfig와 연결
+//	@Autowired
+//	private SeasonMain seasonMain;
+	
+//	@ModelAttribute("mainCt")
+//	Object mainContent(String sn) {
+//		return sm.getPicture(sn);
+//	}
+//	@ModelAttribute("mainCt")
+//	public Object mainContent2(@RequestParam String sn) {
+//		return seasonMain.getPicture(sn);
+//	}
+//    @ModelAttribute("mainCt")	// sn이 null이라 오류
+//    public Object mainContent(@RequestParam String sn) {
+//        SeasonMain seasonMain = provider.getContext().getBean(SeasonMain.class);
+//        return seasonMain.getPicture(sn);
+//    }
+    @ModelAttribute("mainCt")
+    Object mainContent(@RequestParam(name = "sn", required = false) String sn) {
+        if (sn == null) {
+            sn = "spring"; // 기본값 설정
+        }
+        return sm.getPicture(sn);
+//        return provider.getData(sn);
+    }
 	
 	@ModelAttribute("fTxt")
 	Object footerTxt() {
@@ -50,24 +73,17 @@ public class ModelSeasonController2 {
 		return "model/template2";
 	}
 	
-//	@RequestMapping("season/{sn}")
-//	String template(Model mm, @PathVariable String sn) {
-//		mm.addAttribute(sm.getPicture(sn));
-//		return "model/template2";
-//	}
+	@RequestMapping("season/{sn}")
+	String template(Model mm, @PathVariable String sn) {
+		mm.addAttribute("mainCt", sm.getPicture(sn));
+		return "model/template2";
+	}
 
+	// season/spring 이 아니라 그냥 spring으로 동작함
 //	@RequestMapping("{sn}")
 //	String mapping(@PathVariable String sn, Model mm) {
-//		mm.addAttribute("sn",Provider.getContext().getBean(sn));
-//		System.out.println("sn");
+//		mm.addAttribute("mainCt", sm.getPicture(sn));
 //		return "model/template2";
-//	}
-	
-//	@ModelAttribute("season")
-//	Object season() {
-//		Object res = provider.getContext().getBean("sn");
-//		System.out.println(res);
-//		return "res";
 //	}
 	
 }

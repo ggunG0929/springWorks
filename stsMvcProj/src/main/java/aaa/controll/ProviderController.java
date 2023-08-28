@@ -36,7 +36,4 @@ public class ProviderController {
 		return "provider/view";
 	}
 	
-	
-	
-	
 }

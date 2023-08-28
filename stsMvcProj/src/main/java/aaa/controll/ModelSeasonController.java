@@ -11,7 +11,7 @@ import aaa.model.SeasonMain;
 import jakarta.annotation.Resource;
 
 @Controller
-@RequestMapping("/model")
+@RequestMapping("model")
 public class ModelSeasonController {
 	@Resource
 	SeasonMain sm;
@@ -36,7 +36,7 @@ public class ModelSeasonController {
 		return "바닥글";
 	}
 	
-	@RequestMapping("/season")
+	@RequestMapping("season")
 	String template() {
 		return "model/template";
 	}

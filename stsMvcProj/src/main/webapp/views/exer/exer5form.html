@@ -2,16 +2,18 @@
 <html xmlns="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>우직 결제폼</title>
+<title>예약폼</title>
 </head>
 <body>
-<h1>결제폼</h1>
+<style>
+	td>div{
+		background-color: #ff0;
+		color: red;
+	}
+</style>
+<h1>예약폼</h1>
 <form action="" method="post" th:object="${exer5Data}">
 	<table border="">
-		<tr>
-			<td>상점아이디</td>
-			<td><input type="text" th:field="*{mid}" /></td>
-		</tr>
 		<tr>
 			<td>상품이름</td>
 			<td>
@@ -22,7 +24,7 @@
 					<option th:each="gr : *{gname2}" th:value="${gr.url}" th:text="${gr.txt}" />
 				</select>
 				<select th:field="*{gname3}">
-					<!--왜안돼?? - 아마 gt가 이미 있는 단축어? 약어? 라서 안된듯? - 아닌가...?-->
+					<!--gt로는 왜안돼?? - 아마 gt가 이미 있는 단축어? 약어? 라서 안된듯?-->
 					<option th:each="gtime : *{gname3}" th:value="${gtime.url}" th:text="${gtime.txt}" />
 				</select>
 			</td>
@@ -31,38 +33,28 @@
 			<td>상품가격</td>
 			<td>
 				<input type="text" th:field="*{price}" />
+				<div th:if="${#fields.hasErrors('price')}" th:errors="*{price}" />
 			</td>
 		</tr>
 		<tr>
 			<td>구매자 아이디</td>
-			<td><input type="text" th:field="*{bid}" /></td>
-		</tr>
-		<tr>
-			<td>구매자명</td>
-			<td><input type="text" th:field="*{bname}" /></td>
-		</tr>
-		<tr>
-			<td>카드번호</td>
-			<td><input type="text" th:field="*{cardnum}" /></td>
-		</tr>
-		<tr>
-			<td>카드 유효기간</td>
-			<td>
-				<select th:field="*{cardexpm}">
-					<option th:each="m : *{cardexpm}" th:value="${m}" th:text="${m}"/>
-				</select>월/&nbsp;
-				<select th:field="*{cardexpy}">
-					<option th:each="y : *{cardexpy}" th:value="${y}" th:text="${y}"/>
-				</select>년
+			<td><input type="text" th:field="*{bid}" />
+				<div th:if="${#fields.hasErrors('bid')}" th:errors="*{bid}" />
 			</td>
 		</tr>
 		<tr>
-			<td>생년월일</td>
-			<td><input type="text" th:field="*{authfield1}" placeholder="YYMMDD"/></td>
+			<td>입금자명</td>
+			<td>
+				<input type="text" th:field="*{bname}" />
+				<div th:if="${#fields.hasErrors('bname')}" th:errors="*{bname}" />
+			</td>
 		</tr>
 		<tr>
-			<td>카드비밀번호앞2자리</td>
-			<td><input type="password" th:field="*{authfield2}" placeholder="**" style="width: 20px"/>**</td>
+			<td>구매자 연락처</td>
+			<td>
+				<input type="text" th:field="*{bphone}" />
+				<div th:if="${#fields.hasErrors('bphone')}" th:errors="*{bphone}" />
+			</td>
 		</tr>
 		<tr>
 			<td>구매자 이메일주소</td>
@@ -71,7 +63,11 @@
 				<select th:field="*{bemail2}">
 					<option th:each="em : *{bemail2}" th:value="${em.value}" th:text="${em.key}" />
 				</select>
+				<div th:if="${#fields.hasErrors('price')}" th:errors="*{mus}" />
 			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="submit" value="예약"></td>
 		</tr>
 	</table>
 </form>

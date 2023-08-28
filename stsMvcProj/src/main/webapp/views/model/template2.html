@@ -1,38 +1,41 @@
 <!DOCTYPE html>
-<html xmlns="http://www.thymeleaf.org"
-xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-layout:decorate="model/main.html">
+<html xmlns="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>model/season</title>
+<title>model/season2</title>
 <style>
 	img{width: 240px; margin: 5px;}
 </style>
 </head>
 <body>
-<h1>model/layout</h1>
-<!--
+<h1>season2</h1>
 <table border="">
 	<tr>
 		<td width="500px">
 			<table width="100%">
 				<tr align="center">
-					 헤더 메뉴바
 					<td th:each="md : ${hNav}">
-						<a th:href="|?sn=${md.url}|" th:text="${md.txt}" />
+						<!--$: 변수출력표현식 @: url표현식시작 안붙여주면 ${}형태도 그냥 문자식으로 생각함-->
+						<!--<a th:href="season/${md.url}" th:text="${md.txt}" />-->
+						<!--season이 중복해서 나옴-->
+						<!--<a th:href="@{|season/${md.url}|}" th:text="${md.txt}" />-->
+						<!--season이 앞에 안 붙어있음-->
+						<!--<a th:href="@{|${md.url}|}" th:text="${md.txt}" />-->
+						<!--<a th:href="${md.url}" th:text="${md.txt}" />-->
+						<a th:href="@{'/model2/season/' + ${md.url}}" th:text="${md.txt}" />
 					</td>
 				</tr>
 			</table>
 		</td>
 	</tr>
 	<tr>
-		<td> 중심데이터 
+		<td>
 			<img th:each="mc:${mainCt}" th:src="|/sn/${mc}|" alt="" />
 		</td>
 	</tr>
-	<tr> 푸터 
+	<tr>
 		<td>[[${fTxt}]]</td>
 	</tr>	
-</table>-->
+</table>
 </body>
 </html>

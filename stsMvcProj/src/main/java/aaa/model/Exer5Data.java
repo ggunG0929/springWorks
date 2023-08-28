@@ -5,50 +5,42 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 @Data
 public class Exer5Data {
-	// 사용자가 쓰는 걸까 관리자가 쓰는 걸까
-	// 상점아이디(우직)
-	String mid = "wuzik";
-	// 상품이름[1,2,3셀렉트] - 예약정보에서 넘어옴
+	// 사용자가 작성하는 걸로
+	
+	// 상품이름[1,2,3셀렉트]
 //	String gname1, gname2, gname3;
-	// 상품가격 		- 예약정보에서 넘어옴
+	
+	// 상품가격 - 자동계산되도록
+	@Min(6000)
+	@Max(20000)
 	int price = 12000;
-	// 구매자아이디 	- 예약정보에서 넘어옴 	- 회원정보와 연결
-	String bid = "wuzikuser1";
-	// 구매자명 		- 회원정보에서 넘어옴
+	
+	// 구매자아이디 	- 회원정보와 연결
+	@NotEmpty(message="필수입력사항입니다.")
+	@Pattern(regexp="[a-z0-9]{3,8}", message="영어 소문자와 숫자만으로 3~8자입니다.")
+	String bid = "user1";
+	
+	// 입금자명
+	@Pattern(regexp="[가-힣]{2,5}", message="한글 2~5자로 입력해주세요.")
 	String bname = "송강";
-	// 카드번호		- 회원정보? 결제정보?
-	int cardnum;
-	// 카드 유효기간 년/월[셀렉트]
-//	int cardexpy;
-//	int cardexpm;
-	// 생년월일 6자리	- 회원정보에서 넘어옴
-	int authfield1 = 940423;
-	// 카드비번앞2자리
-	int authfield2;
-	// 구매자이메일[2셀렉트]	- 회원정보에서 넘어옴
+	
+	// 연락처
+	@NotEmpty(message="필수입력사항입니다.")
+	@Pattern(regexp="010-[0-9]{3,4}-[0-9]{4}", message="제대로 입력해주세요.")
+	String bphone = "";
+	
+	// 이메일[2셀렉트]
+	@Pattern(regexp="[a-z0-9]", message="영어소문자나 숫자만 허용됩니다.")
 	String bemail1;
 //	, bemail2;
-	// 구매자 폰번호[1셀렉트]	- 회원정보에서 넘어옴
-//	int btel1, 
-	int btel2, btel3;
-	// 화폐단위[셀렉트]
-	String currency = "WON";
-//	// 결과값 - api에서 넘어옴
-//	// 거래번호
-//	int tid;
-//	// 결과코드 - 00이어야 함
-//	int resultCode;
-//	// 결과메세지
-//	String resultMsg;
-//	// 승인번호
-//	int authCode;
-//	// 승인날짜, 시각
-//	int PgAuthDate;
-//	int PgAuthTime;
 	
 	// 데이터명/한글명인 클래스가 필요
 	public List<MenuData> getGname1(){
@@ -86,37 +78,6 @@ public class Exer5Data {
 		res.add(new MenuData("p19","19~20시"));
 		res.add(new MenuData("p20","20~21시"));
 		res.add(new MenuData("p21","21~22시"));
-		
-		return res;
-	}
-	
-	public List<Integer> getCardexpy(){
-		List<Integer> res = new ArrayList<>();
-		
-		res.add(23);
-		res.add(24);
-		res.add(25);
-		res.add(26);
-		res.add(27);
-		
-		return res;
-	}
-	
-	public List<Integer> getCardexpm(){
-		List<Integer> res = new ArrayList<>();
-		
-		res.add(1);
-		res.add(2);
-		res.add(3);
-		res.add(4);
-		res.add(5);
-		res.add(6);
-		res.add(7);
-		res.add(8);
-		res.add(9);
-		res.add(10);
-		res.add(11);
-		res.add(12);
 		
 		return res;
 	}
