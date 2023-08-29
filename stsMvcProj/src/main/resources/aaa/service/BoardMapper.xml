@@ -19,17 +19,25 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 	    <selectKey keyProperty="gid" resultType="int" order="BEFORE">
 	        select max(id) + 1 from board
 	    </selectKey>
-		insert into board (title, pname, pw, content, upfile, reg_date, cnt, seq, lev) 
-		values (#{title},#{pname},#{pw},#{content},#{upfile},sysdate(),0,0,0)
+		insert into board (title, pname, pw, content, upfile, reg_date, gid, cnt, seq, lev) 
+		values (#{title},#{pname},#{pw},#{content},#{upfile},sysdate(),#{gid},-1,0,0)
 	</insert>
 	
 	<delete id="delettt" parameterType="bDTO">
 		delete from board where id = #{id} and pw = #{pw}
 	</delete>
 	
+	<update id="cntup" parameterType="Integer">
+		update board set cnt = cnt+1 where id = #{id}
+	</update>
 	<update id="modifffy" parameterType="bDTO">
 		update board set 
 		pname=#{pname}, content=#{content}, title=#{title}, upfile=#{upfile} 
+		where id=#{id} and pw=#{pw} 
+	</update>
+	<update id="modifffy2" parameterType="bDTO">
+		update board set 
+		pname=#{pname}, content=#{content}, title=#{title} 
 		where id=#{id} and pw=#{pw} 
 	</update>
 </mapper>

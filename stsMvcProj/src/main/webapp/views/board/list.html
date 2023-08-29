@@ -6,21 +6,22 @@
 </head>
 <body>
 <h1>board/list</h1>
-<table border="">
-	<tr>
-		<td>번호</td>
+<table border="" width="900px">
+	<tr align="center">
+		<td width="50px">번호</td>
 		<td>제목</td>
-		<td>작성자</td>
-		<td>등록일</td>
-		<td>조회수</td>
+		<td width="100px">작성자</td>
+		<td width="180px">등록일</td>
+		<td width="50px">조회수</td>
 	</tr>
-	<tr th:each="dto, dtoStat : ${mainData}">
+	<tr th:each="dto, dtoStat : ${mainData}" align="center">
 		<td th:text="${dtoStat.index+1}" />
-		<td>
+		<td align="left">
 			<a th:href="|detail/${dto.id}|" th:text="${dto.title}" />
 		</td>
 		<td th:text="${dto.pname}" />
-		<td th:text="${dto.regDate}"> />
+		<!--<td th:text="${dto.regDate}"> />-->
+		<td th:utext="${#dates.format(dto.regDate, 'yyyy-MM-dd ahh:mm')}" />
 		<td th:text="${dto.cnt}" />
 	</tr>
 	<tr>

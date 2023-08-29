@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>table/detail</h1>
-<table border="">
+<table border="" width="900px">
 	<tr>
 		<td>id</td>
 		<td th:text="${dto.id}"/>
@@ -21,7 +21,8 @@
 	</tr>
 	<tr>
 		<td>등록일</td>
-		<td th:text="${dto.regDate}"/>
+		<!--<td th:text="${dto.regDate}"/>-->
+		<td th:utext="${#dates.format(dto.regDate, 'yyyy-MM-dd ahh:mm')}" />
 	</tr>
 	<tr>
 		<td>조회수</td>

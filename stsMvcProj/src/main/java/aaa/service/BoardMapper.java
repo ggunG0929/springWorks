@@ -20,6 +20,9 @@ public interface BoardMapper {
 	int delettt(BoardDTO dto);
 	// 수정
 	int modifffy(BoardDTO dto);	
+	int modifffy2(BoardDTO dto);	
 	// 총 게시물수
 	int total();
+	// 조회수 증가
+	void cntup(int id);
 }
