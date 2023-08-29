@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import aaa.model.BoardDTO;
 import aaa.model.PageData;
+import aaa.model.PageData2;
 import aaa.service.BoardMapper;
 import jakarta.annotation.Resource;
 
@@ -22,29 +24,17 @@ public class BoardController {
 	BoardMapper mapper;
 	
 	@RequestMapping("list")
-	String list(Model mm) {
-		List<BoardDTO> data = mapper.list();
+	String list(Model mm,
+			@RequestParam(defaultValue = "1") int page) {
+		PageData2 pd = new PageData2(mapper);
+		pd.setPage(page);
+		pd.calc();
+		List<BoardDTO> data = mapper.list(pd.getStart(), pd.getLimit());
 //		System.out.println(data);
+		mm.addAttribute("pd", pd);
 		mm.addAttribute("mainData", data);
 		return "board/list";
 	}
-	
-	@GetMapping("/blist")
-	// model import를 잘못해서 addattribute가 안됐었음
-	String list(
-			@RequestParam(defaultValue = "1") int page,
-			Model mm) {
-		PageData pd = new PageData(bm);
-        pd.setPage(page);
-        pd.calc();
-        List<BoardDTO> data = bm.list(pd.getStart(), pd.getLimit());
-//		List<BoardDTO> data = bm.list();
-		mm.addAttribute("pd", pd);
-		mm.addAttribute("mainCt", "blist");
-		mm.addAttribute("mainData", data);
-		return "board/template";
-	}
-	
 	
 	@RequestMapping("detail/{id}")
 	String detail(Model mm, @PathVariable int id) {

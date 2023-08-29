@@ -15,7 +15,7 @@
 		<td>조회수</td>
 	</tr>
 	<tr th:each="dto, dtoStat : ${mainData}">
-		<td th:text="${dtoStat.index}" />
+		<td th:text="${dtoStat.index+1}" />
 		<td>
 			<a th:href="|detail/${dto.id}|" th:text="${dto.title}" />
 		</td>
@@ -25,28 +25,12 @@
 	</tr>
 	<tr>
 		<td colspan="5" align="center">
-			페이지처리영역
-	<tr>
-		<td colspan="5" align="center">
 			<a th:if="${pd.pageStart>1}" th:href="'?page='+${pd.pageStart-1}">[이전]</a>
 			<span th:each="p : ${#numbers.sequence(pd.pageStart, pd.pageEnd)}">
 				<a th:if="${pd.page == p}" th:text="${p}" th:href="'?page='+${p}"></a>
 				<a th:unless="${pd.page == p}" th:text="${p}" th:href="@{'?page='+${p}}"></a>
 			</span>
 			<a th:if="${pd.pageEnd < pd.pageTotal}" th:href="'?page='+${pd.pageEnd+1}">[다음]</a>
-		</td>
-	</tr>
-<!--		<th:block th:if(pd.pageStart>1)>
-			<a th:href="|?page=${pd.pageStart-1}|">[이전]</a>
-		</th:block>-->
-<!--		<% } for(int p=pd.pageStart; p<=pd.pageEnd; p++) {
-				if(pd.page == p) { %>
-					[<%=p %>]
-			<% }else{ %>
-					<a href="?page=<%=p %>"><%=p %></a>
-			<th:block th:if ${pd.pageEnd < pd.pageTotal}>
-				<a th:href="|?page=${pd.pageEnd+1}|">[다음]</a>
-			</th:block>-->
 		</td>
 	</tr>
 	<tr>

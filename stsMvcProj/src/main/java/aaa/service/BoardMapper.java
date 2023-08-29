@@ -10,7 +10,8 @@ import aaa.model.BoardDTO;
 public interface BoardMapper {
 
 	// 리스트보기
-	List<BoardDTO> list();
+//	List<BoardDTO> list();
+	List<BoardDTO> list(int start, int limit);
 	// 상세보기
 	BoardDTO detail(int id);
 	// 삽입(글 작성)
@@ -18,10 +19,7 @@ public interface BoardMapper {
 	// 삭제
 	int delettt(BoardDTO dto);
 	// 수정
-	int modifffy(BoardDTO dto);
-	
+	int modifffy(BoardDTO dto);	
 	// 총 게시물수
 	int total();
-	// 리스트보기
-	List<BoardDTO> list(int start, int limit);
 }
