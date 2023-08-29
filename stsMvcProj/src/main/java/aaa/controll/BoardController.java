@@ -29,6 +29,23 @@ public class BoardController {
 		return "board/list";
 	}
 	
+	@GetMapping("/blist")
+	// model import를 잘못해서 addattribute가 안됐었음
+	String list(
+			@RequestParam(defaultValue = "1") int page,
+			Model mm) {
+		PageData pd = new PageData(bm);
+        pd.setPage(page);
+        pd.calc();
+        List<BoardDTO> data = bm.list(pd.getStart(), pd.getLimit());
+//		List<BoardDTO> data = bm.list();
+		mm.addAttribute("pd", pd);
+		mm.addAttribute("mainCt", "blist");
+		mm.addAttribute("mainData", data);
+		return "board/template";
+	}
+	
+	
 	@RequestMapping("detail/{id}")
 	String detail(Model mm, @PathVariable int id) {
 		mm.addAttribute("dto", mapper.detail(id));

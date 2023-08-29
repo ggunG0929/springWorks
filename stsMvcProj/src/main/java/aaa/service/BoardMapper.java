@@ -19,4 +19,9 @@ public interface BoardMapper {
 	int delettt(BoardDTO dto);
 	// 수정
 	int modifffy(BoardDTO dto);
+	
+	// 총 게시물수
+	int total();
+	// 리스트보기
+	List<BoardDTO> list(int start, int limit);
 }
