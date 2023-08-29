@@ -7,6 +7,10 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 	<select id="list" resultType="bDTO">
 		select * from board order by gid desc, seq limit #{start}, #{limit}
 	</select>
+	<!-- // 선생님방식 -->
+<!-- 	<select id="list" resultType="bDTO" parameterType="bDTO">
+		select * from board order by gid desc, seq limit #{start}, #{limit}
+	</select> -->
 	<select id="detail" resultType="bDTO" parameterType="Integer">
 		select * from board where id = #{id}
 	</select>
@@ -40,4 +44,18 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 		pname=#{pname}, content=#{content}, title=#{title} 
 		where id=#{id} and pw=#{pw} 
 	</update>
+	
+	
+<!-- 	<select id="listCnt" resultType="Integer">
+		select count(*) from board
+	</select>
+	
+	
+	<update id="addCount" parameterType="Integer">
+		update board set cnt = cnt + 1 where id = #{id}
+	</update>
+	
+	<select id="maxId"  resultType="Integer">
+		select max(id) from board 
+	</select> -->
 </mapper>

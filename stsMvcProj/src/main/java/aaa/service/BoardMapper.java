@@ -25,4 +25,11 @@ public interface BoardMapper {
 	int total();
 	// 조회수 증가
 	void cntup(int id);
+	
+	
+//	// 선생님꺼
+//	List<BoardDTO> list(BoardDTO dto);
+//	int listCnt();
+//	int maxId();
+//	void addCount(int id);
 }
