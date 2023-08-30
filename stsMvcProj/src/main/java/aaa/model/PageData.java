@@ -6,6 +6,6 @@ import lombok.Data;
 public class PageData {
 
 	// 선생님은 안쓰심
-	String msg, goUrl;
+//	String msg, goUrl;
 
 }

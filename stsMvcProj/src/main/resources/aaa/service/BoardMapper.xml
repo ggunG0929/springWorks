@@ -4,20 +4,12 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="aaa.service.BoardMapper">
-	<select id="list" resultType="bDTO">
+ 	<select id="list" resultType="bDTO" parameterType="bDTO">
 		select * from board order by gid desc, seq limit #{start}, #{limit}
 	</select>
-	<!-- // 선생님방식 -->
-<!-- 	<select id="list" resultType="bDTO" parameterType="bDTO">
-		select * from board order by gid desc, seq limit #{start}, #{limit}
-	</select> -->
 	<select id="detail" resultType="bDTO" parameterType="Integer">
 		select * from board where id = #{id}
 	</select>
-    <!-- 총 게시글 수 조회 -->
-    <select id="total" resultType="int">
-        SELECT COUNT(*) FROM board;
-    </select>
 	
 	<insert id="insseerr" parameterType="bDTO">
 	    <selectKey keyProperty="gid" resultType="int" order="BEFORE">
@@ -31,25 +23,15 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 		delete from board where id = #{id} and pw = #{pw}
 	</delete>
 	
-	<update id="cntup" parameterType="Integer">
-		update board set cnt = cnt+1 where id = #{id}
-	</update>
 	<update id="modifffy" parameterType="bDTO">
 		update board set 
 		pname=#{pname}, content=#{content}, title=#{title}, upfile=#{upfile} 
 		where id=#{id} and pw=#{pw} 
 	</update>
-	<update id="modifffy2" parameterType="bDTO">
-		update board set 
-		pname=#{pname}, content=#{content}, title=#{title} 
-		where id=#{id} and pw=#{pw} 
-	</update>
 	
-	
-<!-- 	<select id="listCnt" resultType="Integer">
+ 	<select id="listCnt" resultType="Integer">
 		select count(*) from board
 	</select>
-	
 	
 	<update id="addCount" parameterType="Integer">
 		update board set cnt = cnt + 1 where id = #{id}
@@ -57,5 +39,5 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 	
 	<select id="maxId"  resultType="Integer">
 		select max(id) from board 
-	</select> -->
+	</select>
 </mapper>

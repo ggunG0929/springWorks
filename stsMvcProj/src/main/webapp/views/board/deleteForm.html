@@ -8,8 +8,7 @@
 <h1>board/deleteForm</h1>
 <form action="" method="post">
 	<input type="hidden" th:value="${id}" name="id"/>
-	<!--선생님 방식-->
-<!--	<input type="hidden" th:value="${page}" name="page"/>-->
+	<input type="hidden" th:value="${page}" name="page"/>
 	<table border="">
 		<tr>
 			<td>암호</td>
@@ -18,9 +17,7 @@
 		<tr>
 			<td colspan="2" align="center">
 				<input type="submit" value="삭제" />
-				<a th:href="|/board/detail/${id}|" th:text="뒤로" />
-				<!--선생님 방식-->
-				<!--<a th:href="|/board/detail/${page}/${id}|" th:text="뒤로"/>-->
+				<a th:href="|/board/detail/${page}/${id}|" th:text="뒤로"/>
 			</td>
 		</tr>
 	</table>
