@@ -12,11 +12,9 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 	</select>
 	
 	<insert id="insseerr" parameterType="bDTO">
-	    <selectKey keyProperty="gid" resultType="int" order="BEFORE">
-	        select max(id) + 1 from board
-	    </selectKey>
-		insert into board (title, pname, pw, content, upfile, reg_date, gid, cnt, seq, lev) 
-		values (#{title},#{pname},#{pw},#{content},#{upfile},sysdate(),#{gid},-1,0,0)
+		insert into board (title, pname, pw, content, upfile, reg_date, cnt, seq, lev, gid, id)
+		values
+		(#{title},#{pname},#{pw},#{content},#{upfile}, sysdate(),0,0,0, #{id}, #{id})
 	</insert>
 	
 	<delete id="delettt" parameterType="bDTO">
@@ -39,5 +37,13 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 	
 	<select id="maxId"  resultType="Integer">
 		select max(id) from board 
+	</select>
+	
+	<update id="fileDelete" parameterType="bDTO">
+		update board set upfile = null where id = #{id} and pw= #{pw}
+	</update>
+	
+	<select id="idPwChk" parameterType="bDTO" resultType="Integer">
+		select count(*) from board where id = #{id} and pw= #{pw}
 	</select>
 </mapper>

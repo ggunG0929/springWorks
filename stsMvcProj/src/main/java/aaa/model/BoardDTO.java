@@ -19,17 +19,28 @@ public class BoardDTO {
 	String title, pname, pw, upfile, content;
 	Date regDate;
 	
+	// 8.30
+	String grade;
+	
 	// 선생님이 만드신 것
 	int start, limit = 3,pageLimit=4, page, pageStart, pageEnd, pageTotal;
 	String msg, goUrl;
 	
-	public void calc() {
-		
+	public void calc(int total) {
 		
 		start = (page -1) * limit;
 		
 		pageStart = (page -1)/pageLimit*pageLimit +1;
 		pageEnd = pageStart + pageLimit -1;
+		
+		pageTotal = total / limit;
+		if(total % limit != 0) {
+			pageTotal++;
+		}
+		
+		if(pageEnd > pageTotal) {
+			pageEnd = pageTotal;
+		}
 	}
 	
 	public String getUpfile() {

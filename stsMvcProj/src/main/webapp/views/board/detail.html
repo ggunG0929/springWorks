@@ -28,7 +28,8 @@
 		<td>조회수</td>
 		<td th:text="${dto.cnt}"/>
 	</tr>
-	<tr>
+	<tr th:if="${dto.upfile != null}">
+		
 		<td>파일</td>
 		<td >
 			<img th:if="${dto.img}" th:src="|/up/${dto.upfile}|"/>

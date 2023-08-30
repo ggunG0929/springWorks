@@ -7,11 +7,14 @@ import org.apache.ibatis.annotations.Mapper;
 import aaa.model.BoardDTO;
 
 @Mapper
-public interface BoardMapper {
+public interface MybatisMapper {
 
 	// 리스트보기
 //	List<BoardDTO> list(int start, int limit);
-	List<BoardDTO> list(BoardDTO dto);
+	List<BoardDTO> list();
+	List<BoardDTO> listSch(BoardDTO dto);
+	List<BoardDTO> cntSch(BoardDTO dto);
+	
 	// 상세보기
 	BoardDTO detail(int id);
 	// 삽입(글 작성)

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="aaa.service.MybatisMapper">
+ 	<select id="list" resultType="bDTO">
+		select * from board order by gid desc, seq
+	</select>
+
+<!-- 	<select id="listCnt" resultType="Integer">
+		select count(*) from board
+	</select> -->
+	
+<!-- 	<select id="listSch" resultType="bDTO" parameterType="bDTO">
+		select * from board where title like concat('%', #{title} ,'%')
+	</select> -->
+	
+<!-- 	<select id="listSch" resultType="bDTO" parameterType="bDTO">
+		select * from board
+		<if test="title!=null"
+			where title like concat('%', #{title} ,'%')
+		</if>
+	</select> -->
+	
+<!-- 	<select id="listSch" resultType="bDTO" parameterType="bDTO">
+		select * from board 
+		<if test="title!=null">
+			where title like concat('%', #{title} ,'%')
+		</if>
+		<if test="pname!=null">
+			and pname like concat('%', #{pname} ,'%')
+		</if>
+	</select> -->
+
+ 	<select id="listSch" resultType="bDTO" parameterType="bDTO">
+		select * from board 
+		<where>
+			<if test="title!=null">
+				title like concat('%', #{title} ,'%')
+			</if>
+			<if test="pname!=null">
+				and pname like concat('%', #{pname} ,'%')
+			</if>
+		</where>
+	</select>
+	
+<!-- 	<select id="cntSch" resultType="bDTO" parameterType="bDTO">
+		select * from board 
+		<where>
+			<if test="title!=null">
+				title like concat('%', #{title} ,'%')
+			</if>
+			<if test="pname!=null">
+				and pname like concat('%', #{pname} ,'%')
+			</if>
+		</where>
+	</select> -->
+
+<!-- 	<select id="cntSch" resultType="bDTO" parameterType="bDTO">
+		select * from board 
+		<where>
+			<if test="grade!=null">
+				<choose>
+					<when test="grade = 'high'">
+						cnt > 10
+					</when>
+					<when test="grade = 'middle'">
+						cnt > 5
+					</when>
+					<otherwise>
+						cnt &lt;= 5
+					</otherwise>
+				</choose>
+			</if>
+		</where>
+	</select> -->
+	
+	
+	<select id="cntSch" resultType="bDTO" parameterType="bDTO">
+		select * from board 
+		<where>
+			<if test="grade!=null">
+				<choose>
+					<when test="grade == 'high'">
+						cnt > 10
+					</when>
+					<when test="grade == 'middle'">
+						cnt > 5 and cnt &lt;= 10
+					</when>
+					<otherwise>
+						cnt &lt;= 5
+					</otherwise>
+				</choose>
+			</if>
+		</where>
+	</select>
+	
+	
+	<select id="detail" resultType="bDTO" parameterType="Integer">
+		select * from board where id = #{id}
+	</select>
+	
+	<insert id="insseerr" parameterType="bDTO">
+		insert into board (title, pname, pw, content, upfile, reg_date, cnt, seq, lev, gid, id)
+		values
+		(#{title},#{pname},#{pw},#{content},#{upfile}, sysdate(),0,0,0, #{id}, #{id})
+	</insert>
+	
+	<delete id="delettt" parameterType="bDTO">
+		delete from board where id = #{id} and pw = #{pw}
+	</delete>
+	
+	<update id="modifffy" parameterType="bDTO">
+		update board set 
+		pname=#{pname}, content=#{content}, title=#{title}, upfile=#{upfile} 
+		where id=#{id} and pw=#{pw} 
+	</update>
+	
+	<update id="addCount" parameterType="Integer">
+		update board set cnt = cnt + 1 where id = #{id}
+	</update>
+	
+	<select id="maxId"  resultType="Integer">
+		select max(id) from board 
+	</select>
+	
+	<update id="fileDelete" parameterType="bDTO">
+		update board set upfile = null where id = #{id} and pw= #{pw}
+	</update>
+	
+	<select id="idPwChk" parameterType="bDTO" resultType="Integer">
+		select count(*) from board where id = #{id} and pw= #{pw}
+	</select>
+</mapper>
