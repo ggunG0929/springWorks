@@ -4,25 +4,26 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="aaa.service.MybatisMapper">
+
  	<select id="list" resultType="bDTO">
 		select * from board order by gid desc, seq
 	</select>
 
-<!-- 	<select id="listCnt" resultType="Integer">
-		select count(*) from board
-	</select> -->
-	
-<!-- 	<select id="listSch" resultType="bDTO" parameterType="bDTO">
+	<!-- 왜 다 나오지... -->
+<!--  	<select id="listSch" resultType="bDTO" parameterType="bDTO">
 		select * from board where title like concat('%', #{title} ,'%')
 	</select> -->
 	
-<!-- 	<select id="listSch" resultType="bDTO" parameterType="bDTO">
+	<!-- if where면 =이 나와야 한다고 오류 -->
+<!--  	<select id="listSch" resultType="bDTO" parameterType="bDTO">
 		select * from board
 		<if test="title!=null"
 			where title like concat('%', #{title} ,'%')
 		</if>
 	</select> -->
-	
+
+
+	<!-- 2번(변수가 두개인걸로) -->
 <!-- 	<select id="listSch" resultType="bDTO" parameterType="bDTO">
 		select * from board 
 		<if test="title!=null">
@@ -33,7 +34,7 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 		</if>
 	</select> -->
 
- 	<select id="listSch" resultType="bDTO" parameterType="bDTO">
+<!--   	<select id="listSch" resultType="bDTO" parameterType="bDTO">
 		select * from board 
 		<where>
 			<if test="title!=null">
@@ -43,8 +44,26 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 				and pname like concat('%', #{pname} ,'%')
 			</if>
 		</where>
+	</select> -->
+	
+	<!-- select id를 줌 -->
+	<sql id="wh_1">
+		<where>
+			<if test="title!=null">
+				title like concat('%', #{title} ,'%')
+			</if>
+			<if test="pname!=null">
+				and pname like concat('%', #{pname} ,'%')
+			</if>
+		</where>
+	</sql>
+	<select id="listSch" resultType="bDTO" parameterType="bDTO">
+		select * from board 
+		<include refid="wh_1"/>
 	</select>
 	
+	
+	
 <!-- 	<select id="cntSch" resultType="bDTO" parameterType="bDTO">
 		select * from board 
 		<where>
@@ -56,28 +75,8 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 			</if>
 		</where>
 	</select> -->
-
-<!-- 	<select id="cntSch" resultType="bDTO" parameterType="bDTO">
-		select * from board 
-		<where>
-			<if test="grade!=null">
-				<choose>
-					<when test="grade = 'high'">
-						cnt > 10
-					</when>
-					<when test="grade = 'middle'">
-						cnt > 5
-					</when>
-					<otherwise>
-						cnt &lt;= 5
-					</otherwise>
-				</choose>
-			</if>
-		</where>
-	</select> -->
 	
-	
-	<select id="cntSch" resultType="bDTO" parameterType="bDTO">
+ 	<select id="cntSch" resultType="bDTO" parameterType="bDTO">
 		select * from board 
 		<where>
 			<if test="grade!=null">
@@ -96,8 +95,84 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 		</where>
 	</select>
 	
+		
+		
+	<insert id="insseerr" parameterType="bDTO">
+		<selectKey keyProperty="id" resultType="Integer" order="BEFORE">
+			select max(id)+1 from board
+		</selectKey>
+		insert into board (title, pname, pw, content, upfile, reg_date, cnt, seq, lev, gid, id)
+		values
+		(#{title},#{pname},#{pw},#{content},#{upfile}, sysdate(),0,0,0, #{id}, #{id})
+	</insert>
 	
-	<select id="detail" resultType="bDTO" parameterType="Integer">
+	
+	<!-- insseerr를 변형 -->
+<!-- 	<insert id="insseerrList" parameterType="java.util.List">
+		insert into board (title, pname, pw, content, reg_date, cnt, seq, lev)
+		values
+		<foreach collection="list" item="dto" separator=" , ">
+		(#{dto.title},#{dto.pname},#{dto.pw},#{dto.content}, sysdate(),0,0,0)
+		</foreach>
+ 	</insert> -->
+ 	
+		<!-- max_1이 같이 구동되어 숫자가 더더 올라감(최대 아이디값을 올려놓고 더해짐) -->
+<!--	<sql id="max_1">
+		(select max(id)+1 from board bb)
+	</sql>
+	<insert id="insseerrList" parameterType="java.util.List">
+		insert into board (title, pname, pw, content, reg_date, cnt, seq, lev, id, gid)
+		values
+		<foreach collection="list" item="dto" separator=" , " index="i">
+			(#{dto.title},#{dto.pname},#{dto.pw},#{dto.content}, sysdate(),0,0,0,
+			<include refid="max_1"/>+#{i}, <include refid="max_1"/>+#{i})
+		</foreach>
+	</insert> -->
+	
+	<!-- 고정값 설정시 인덱스가 잘 올라감 -->
+	<sql id="max_1">
+		(select max(id)+1 from board bb)
+	</sql>
+	<insert id="insseerrList" parameterType="java.util.List">
+		insert into board (title, pname, pw, content, reg_date, cnt, seq, lev, id, gid)
+		values
+		<foreach collection="list" item="dto" separator=" , " index="i">
+			(#{dto.title},#{dto.pname},#{dto.pw},#{dto.content}, sysdate(),0,0,0,
+			200+#{i}, 200+#{i})
+		</foreach>
+	</insert>
+	
+	
+	<!-- insseerrList를 변형 -->
+	<insert id="insseerrDTOs" parameterType="dtos">
+		insert into board (title, pname, pw, content, reg_date, cnt, seq, lev)
+		values
+		<foreach collection="arr" item="dd" separator=" , ">
+		<!-- content와 cnt를 클래스에서 정의한 값으로 -->
+		(#{dd.title},#{dd.pname},#{dd.pw},#{ct}, sysdate(),#{no},0,0)
+		</foreach>
+	</insert>
+	
+	
+	<!-- 여러개의 매개변수를 처리시 xml에서는 매개변수 이름으로 접근 -->
+	<delete id="delettt" parameterType="bDTO">
+		delete from board where id = #{id} and pw = #{pw}
+	</delete>
+	
+	
+	<!-- parameterType="map" 인 경우 매개변수를  map으로 묶어 key, value형태로 접근 -->	
+	<update id="modifffy" parameterType="map">
+		update board set 
+		pname = #{pname}, content= #{content}, title= #{title}
+		where id = #{id} and pw= #{pw}
+	</update>
+
+	
+	
+	
+	
+	<!-- 안쓰임 -->
+<!-- 	<select id="detail" resultType="bDTO" parameterType="Integer">
 		select * from board where id = #{id}
 	</select>
 	
@@ -131,5 +206,9 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 	
 	<select id="idPwChk" parameterType="bDTO" resultType="Integer">
 		select count(*) from board where id = #{id} and pw= #{pw}
-	</select>
+	</select> -->
+	
+<!-- 	<select id="listCnt" resultType="Integer">
+		select count(*) from board
+	</select> -->
 </mapper>

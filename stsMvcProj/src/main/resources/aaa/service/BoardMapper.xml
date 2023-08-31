@@ -10,6 +10,15 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 	<select id="detail" resultType="bDTO" parameterType="Integer">
 		select * from board where id = #{id}
 	</select>
+ 	<select id="listCnt" resultType="Integer">
+		select count(*) from board
+	</select>
+	<select id="maxId"  resultType="Integer">
+		select max(id) from board 
+	</select>
+	<select id="idPwChk" parameterType="bDTO" resultType="Integer">
+		select count(*) from board where id = #{id} and pw= #{pw}
+	</select>
 	
 	<insert id="insseerr" parameterType="bDTO">
 		insert into board (title, pname, pw, content, upfile, reg_date, cnt, seq, lev, gid, id)
@@ -26,24 +35,13 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 		pname=#{pname}, content=#{content}, title=#{title}, upfile=#{upfile} 
 		where id=#{id} and pw=#{pw} 
 	</update>
-	
- 	<select id="listCnt" resultType="Integer">
-		select count(*) from board
-	</select>
-	
 	<update id="addCount" parameterType="Integer">
 		update board set cnt = cnt + 1 where id = #{id}
 	</update>
-	
-	<select id="maxId"  resultType="Integer">
-		select max(id) from board 
-	</select>
-	
 	<update id="fileDelete" parameterType="bDTO">
 		update board set upfile = null where id = #{id} and pw= #{pw}
 	</update>
 	
-	<select id="idPwChk" parameterType="bDTO" resultType="Integer">
-		select count(*) from board where id = #{id} and pw= #{pw}
-	</select>
+	
+	
 </mapper>

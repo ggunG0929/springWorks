@@ -21,6 +21,15 @@ public class BoardDTO {
 	
 	// 8.30
 	String grade;
+	// 8.31
+	public BoardDTO() {}	
+	public BoardDTO(String title, String pname, String pw, String content) {
+		super();
+		this.title = title;
+		this.pname = pname;
+		this.pw = pw;
+		this.content = content;
+	}	
 	
 	// 선생님이 만드신 것
 	int start, limit = 3,pageLimit=4, page, pageStart, pageEnd, pageTotal;
